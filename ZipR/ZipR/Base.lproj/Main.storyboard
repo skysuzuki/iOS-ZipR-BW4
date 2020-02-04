@@ -24,7 +24,7 @@
                                 <navigationItem title="My Feed" id="hyS-d2-dDT">
                                     <barButtonItem key="rightBarButtonItem" systemItem="compose" id="XkT-wx-OxE">
                                         <connections>
-                                            <segue destination="sKU-bl-Nrg" kind="presentation" id="5mY-b7-Qte"/>
+                                            <segue destination="sKU-bl-Nrg" kind="presentation" identifier="ModalCreateMessageBoardSegue" id="5mY-b7-Qte"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -32,14 +32,14 @@
                         </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageBoardCell" id="Ne7-3r-pOZ" customClass="MessageBoardTableViewCell" customModule="ZipR" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="207"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="207.33332824707031"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ne7-3r-pOZ" id="vfY-Ea-ZLu">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="207"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="207.33332824707031"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GQ5-9i-T27">
-                                            <rect key="frame" x="20" y="21" width="374" height="125"/>
+                                            <rect key="frame" x="20" y="20.999999999999993" width="374" height="125.33333333333331"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad6-Vz-cYl">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="18"/>
@@ -48,7 +48,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yhU-WP-Ja8">
-                                                    <rect key="frame" x="0.0" y="26.000000000000004" width="374" height="50.333333333333343"/>
+                                                    <rect key="frame" x="0.0" y="25.999999999999996" width="374" height="50.666666666666657"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nFX-3e-1qs">
                                                         <size key="itemSize" width="50" height="20"/>
@@ -83,7 +83,7 @@
                                                     </cells>
                                                 </collectionView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyf-94-REs">
-                                                    <rect key="frame" x="0.0" y="84.333333333333329" width="374" height="40.666666666666671"/>
+                                                    <rect key="frame" x="0.0" y="84.666666666666671" width="374" height="40.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -91,7 +91,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rp2-Te-oTC">
-                                            <rect key="frame" x="19.999999999999996" y="156" width="53.666666666666657" height="30"/>
+                                            <rect key="frame" x="19.999999999999996" y="156.33333333333334" width="53.666666666666657" height="30"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeG-lJ-2Jb">
                                                     <rect key="frame" x="0.0" y="0.0" width="10.666666666666666" height="30"/>
@@ -127,6 +127,7 @@
                                     <outlet property="authorLabel" destination="ad6-Vz-cYl" id="yoe-Qy-Ic6"/>
                                     <outlet property="commentNumberLabel" destination="eeG-lJ-2Jb" id="ver-8b-vuc"/>
                                     <outlet property="titleLabel" destination="iyf-94-REs" id="y7Y-p1-kAd"/>
+                                    <segue destination="rJl-Wj-kKv" kind="presentation" identifier="ModalDetailPostSegue" id="Aeh-4c-Ltv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -269,17 +270,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gkF-uS-oN0">
-                                <rect key="frame" x="20" y="20" width="374" height="66.666666666666671"/>
+                                <rect key="frame" x="20" y="20" width="374" height="95"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQv-TB-bdW">
+                                        <rect key="frame" x="0.0" y="0.0" width="46.333333333333336" height="18"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQK-gU-emr">
-                                        <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="40.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="25.999999999999996" width="63.333333333333336" height="40.666666666666657"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQv-TB-bdW">
-                                        <rect key="frame" x="0.0" y="48.666666666666671" width="46.333333333333336" height="18"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kv4-cH-rlm">
+                                        <rect key="frame" x="0.0" y="74.666666666666671" width="87.666666666666671" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -291,7 +298,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OdI-Vx-ZU4">
-                                <rect key="frame" x="0.0" y="96.666666666666686" width="414" height="667.33333333333326"/>
+                                <rect key="frame" x="0.0" y="125" width="414" height="639"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" textLabel="bpc-2a-zQx" detailTextLabel="VhE-e0-Q7F" style="IBUITableViewCellStyleSubtitle" id="6DU-Pj-Aw0">
@@ -338,6 +345,7 @@
                     </view>
                     <connections>
                         <outlet property="authorLabel" destination="oQv-TB-bdW" id="ZDa-eY-oJn"/>
+                        <outlet property="descriptionLabel" destination="kv4-cH-rlm" id="FMM-6P-DQd"/>
                         <outlet property="titleLabel" destination="mQK-gU-emr" id="RnA-Yq-M98"/>
                     </connections>
                 </viewController>
@@ -434,4 +442,7 @@
     <resources>
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Aeh-4c-Ltv"/>
+    </inferredMetricsTieBreakers>
 </document>
