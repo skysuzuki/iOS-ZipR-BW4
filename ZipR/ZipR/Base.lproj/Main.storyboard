@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RVG-5X-tbt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RVG-5X-tbt">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -147,7 +147,7 @@
                             <outlet property="delegate" destination="sWR-SP-cfJ" id="faK-te-RG7"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="My Feed" id="Ggn-v3-4hP"/>
+                    <tabBarItem key="tabBarItem" title="My Feed" image="list.dash" catalog="system" id="Ggn-v3-4hP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLm-0l-Fst" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -394,7 +394,7 @@
                             <outlet property="delegate" destination="z46-ju-bC5" id="X4F-Kt-gvb"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Recent Activity" id="hp9-TH-Qsu"/>
+                    <tabBarItem key="tabBarItem" title="Recent Activity" image="clock" catalog="system" id="hp9-TH-Qsu"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEb-vP-fcg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -423,7 +423,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yHr-zp-PTQ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="mjt-gM-QWu"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="mjt-gM-QWu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Neg-3e-MoN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -477,7 +477,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clock" catalog="system" width="64" height="60"/>
+        <image name="list.dash" catalog="system" width="64" height="42"/>
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
+        <image name="person" catalog="system" width="64" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Aeh-4c-Ltv"/>

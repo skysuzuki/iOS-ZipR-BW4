@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import PTCardTabBar
 
-class DefaultTabBarController: UITabBarController {
+class DefaultTabBarController: PTCardTabBarController {
     
     let postController = PostController()
 
