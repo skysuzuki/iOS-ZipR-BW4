@@ -17,6 +17,7 @@ class CreateMessageBoardViewController: UIViewController {
     @IBOutlet private weak var titleTextField: UITextField!
     @IBOutlet private weak var descriptionTextView: UITextView!
 
+    var postController: PostController?
     var delegate: CreateMessageBoardViewControllerDelegate?
 
     override func viewDidLoad() {
@@ -35,8 +36,18 @@ class CreateMessageBoardViewController: UIViewController {
         descriptionTextView.layer.borderWidth = 1.0
     }
 
+    private func postMessageBoard() {
+        guard let titleString = titleTextField.text,
+            !titleString.isEmpty,
+            let descriptionString = descriptionTextView.text,
+            !descriptionString.isEmpty else { return }
+
+        postController?.createPost(author: "Skyler", title: titleString, description: descriptionString)
+        delegate?.postButtonWasTapped()
+    }
 
     @IBAction func postButtonTapped(_ sender: UIBarButtonItem) {
+        postMessageBoard()
         self.dismiss(animated: true, completion: nil)
     }
 

@@ -91,6 +91,10 @@ class MessageBoardTableViewController: UITableViewController {
 
         switch segue.identifier {
         case "ModalCreateMessageBoardSegue":
+            if let detailVC = segue.destination as? CreateMessageBoardViewController {
+                detailVC.postController = self.postController
+                detailVC.delegate = self
+            }
             return
         case "ModalCommentSegue":
             return
@@ -100,4 +104,18 @@ class MessageBoardTableViewController: UITableViewController {
     }
 
 
+}
+
+extension MessageBoardTableViewController: CreateMessageBoardViewControllerDelegate {
+    func postButtonWasTapped() {
+        postController.fetchPosts { (error) in
+            if let _ = error {
+                print("Error")
+            } else {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
 }
