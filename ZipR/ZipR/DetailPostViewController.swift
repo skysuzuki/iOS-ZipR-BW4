@@ -12,12 +12,23 @@ class DetailPostViewController: UIViewController {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var authorLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
 
+    var postController: PostController?
+    var post: Post?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
         // Do any additional setup after loading the view.
+    }
+
+    private func updateViews() {
+        if let post = post {
+            titleLabel.text = post.title
+            authorLabel.text = post.author
+            descriptionLabel.text = post.description
+        }
     }
     
 

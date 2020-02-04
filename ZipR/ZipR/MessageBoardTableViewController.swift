@@ -96,7 +96,12 @@ class MessageBoardTableViewController: UITableViewController {
                 detailVC.delegate = self
             }
             return
-        case "ModalCommentSegue":
+        case "ModalCommentSegue", "ModalDetailPostSegue" :
+            if let detailVC = segue.destination as? DetailPostViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
+                detailVC.postController = self.postController
+                detailVC.post = self.postController.posts[indexPath.row]
+            }
             return
         default:
             return
