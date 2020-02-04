@@ -1,0 +1,6 @@
+framework module Pods_ZipR {
+  umbrella header "Pods-ZipR-umbrella.h"
+
+  export *
+  module * { export * }
+}
