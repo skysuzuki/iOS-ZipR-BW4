@@ -18,7 +18,7 @@ class Post: Codable {
     let lat: Int?
     let id: String?
     
-    init(authorName: String, title: String, description: String, tag: [Tag] = [], long: Int = 0, lat: Int = 0, id: String?) {
+    init(authorName: String, title: String, description: String, tag: [Tag] = [Tag.general], long: Int = 0, lat: Int = 0, id: String?) {
         var tagRaw: [String] = []
         for i in tag {
             tagRaw.append(i.rawValue)
@@ -53,7 +53,8 @@ class Post: Codable {
 
 
 
-enum Tag: String {
+enum Tag: String, CaseIterable {
+    case general
     case art
     case news
     case videogames
