@@ -94,19 +94,12 @@
 		BB05497B23E8925100EF62AF /* ZipR */ = {
 			isa = PBXGroup;
 			children = (
-				9518B93D23E8F60600843E7C /* Post.swift */,
-				9518B93C23E8F60600843E7C /* PostController.swift */,
+				BB0549A423E90C6600EF62AF /* View Controllers */,
+				BB0549A523E90C8B00EF62AF /* Views */,
+				BB0549A723E90CB900EF62AF /* Model Controllers */,
+				BB0549A623E90C9A00EF62AF /* Models */,
 				BB05497C23E8925100EF62AF /* AppDelegate.swift */,
 				BB05497E23E8925100EF62AF /* SceneDelegate.swift */,
-				BB05499A23E8A85200EF62AF /* DefaultTabBarController.swift */,
-				BB05499023E895F200EF62AF /* MessageBoardTableViewController.swift */,
-				BB05499C23E8AC3700EF62AF /* CreateMessageBoardViewController.swift */,
-				BB0549A223E8D7F100EF62AF /* PostTagTableViewController.swift */,
-				BB05499E23E8C10500EF62AF /* DetailPostViewController.swift */,
-				BB05499223E8962C00EF62AF /* MyRecentActivtyTableViewController.swift */,
-				BB05499423E8963E00EF62AF /* ProfileViewController.swift */,
-				BB05499623E8965000EF62AF /* MessageBoardTableViewCell.swift */,
-				BB05499823E8965D00EF62AF /* MyRecentActivityTableViewCell.swift */,
 				BB05498223E8925100EF62AF /* Main.storyboard */,
 				BB05498523E8925400EF62AF /* Assets.xcassets */,
 				9518B94023E8F8DF00843E7C /* GoogleService-Info.plist */,
@@ -114,6 +107,45 @@
 				BB05498A23E8925400EF62AF /* Info.plist */,
 			);
 			path = ZipR;
+			sourceTree = "<group>";
+		};
+		BB0549A423E90C6600EF62AF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BB05499A23E8A85200EF62AF /* DefaultTabBarController.swift */,
+				BB05499423E8963E00EF62AF /* ProfileViewController.swift */,
+				BB05499023E895F200EF62AF /* MessageBoardTableViewController.swift */,
+				BB05499C23E8AC3700EF62AF /* CreateMessageBoardViewController.swift */,
+				BB0549A223E8D7F100EF62AF /* PostTagTableViewController.swift */,
+				BB05499E23E8C10500EF62AF /* DetailPostViewController.swift */,
+				BB05499223E8962C00EF62AF /* MyRecentActivtyTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BB0549A523E90C8B00EF62AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB05499623E8965000EF62AF /* MessageBoardTableViewCell.swift */,
+				BB05499823E8965D00EF62AF /* MyRecentActivityTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BB0549A623E90C9A00EF62AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9518B93D23E8F60600843E7C /* Post.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BB0549A723E90CB900EF62AF /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9518B93C23E8F60600843E7C /* PostController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 		E51A11DBD837F3FB65E94280 /* Frameworks */ = {
