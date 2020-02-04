@@ -18,15 +18,12 @@ class Post: Codable {
     let lat: Int?
     let id: String?
     
-    init(authorName: String, title: String, description: String, tag: [Tag] = [Tag.general], long: Int = 0, lat: Int = 0, id: String?) {
-        var tagRaw: [String] = []
-        for i in tag {
-            tagRaw.append(i.rawValue)
-        }
+    init(authorName: String, title: String, description: String, tag: [String] = [Tag.general.rawValue], long: Int = 0, lat: Int = 0, id: String?) {
+
         self.author = authorName
         self.title = title
         self.description = description
-        self.tag = tagRaw
+        self.tag = tag
         self.long = long
         self.lat = lat
         self.id = UUID().uuidString
@@ -37,11 +34,18 @@ class Post: Codable {
             let identifier = dictionary["id"] as? String,
             let description = dictionary["description"] as? String,
             let title = dictionary["title"] as? String else { return nil }
+
+
+        if let tags = dictionary["tags"] as? [String] {
+            self.init(authorName: author, title: title, description: description, tag: tags, id: identifier)
+            return
+        }
+
         self.init(authorName: author, title: title, description: description, id: identifier)
     }
     
     var dictionaryRepresentation: [String: Any] {
-        return ["author": author, "title": title, "description": description, "id": id!]
+        return ["author": author, "title": title, "description": description, "tags": tag as Any, "id": id!]
       }
 }
 
