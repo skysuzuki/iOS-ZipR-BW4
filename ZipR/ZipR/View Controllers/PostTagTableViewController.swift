@@ -35,7 +35,7 @@ class PostTagTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Tag.allCases.count
     }
 
 
@@ -43,6 +43,7 @@ class PostTagTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath)
 
         // Configure the cell...
+        cell.textLabel?.text = Tag.allCases[indexPath.row].rawValue.capitalized
 
         return cell
     }
