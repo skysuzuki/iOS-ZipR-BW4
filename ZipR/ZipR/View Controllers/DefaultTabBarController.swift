@@ -9,22 +9,38 @@
 import UIKit
 
 class DefaultTabBarController: UITabBarController {
+    
+    let postController = PostController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
+    override func viewWillLayoutSubviews() {
+        if let user = postController.user {
+            print("Welcome \(user.name)")
+        } else {
+            self.performSegue(withIdentifier: "LoginSegue", sender: self)
+        }
+    }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "LoginSegue" {
+            let destinationVC = segue.destination as? LoginViewController
+            destinationVC?.postController = postController
+        }
     }
-    */
+    
 
+}
+
+struct CurrentUser {
+    let name: String
+    let longitude: Int?
+    let latitude: Int?
 }

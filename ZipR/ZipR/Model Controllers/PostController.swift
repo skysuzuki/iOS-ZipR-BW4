@@ -11,6 +11,7 @@ import FirebaseDatabase
 
 class PostController {
     
+    var user: CurrentUser?
     var ref: DatabaseReference!
     var posts: [Post] = []
     
