@@ -6,5 +6,8 @@ target 'ZipR' do
   use_frameworks!
 
   # Pods for ZipR
-
+pod 'Firebase'
+pod 'Firebase/Auth'
+pod 'Firebase/Core'
+pod 'Firebase/Database'
 end
