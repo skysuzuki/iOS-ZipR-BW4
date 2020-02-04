@@ -168,6 +168,7 @@
 				BB05497623E8925100EF62AF /* Frameworks */,
 				BB05497723E8925100EF62AF /* Resources */,
 				892B17C1CB4E7599DF1BDBC4 /* [CP] Embed Pods Frameworks */,
+				B45AAAA98B4EBE8F6F1584C6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -263,6 +264,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZipR/Pods-ZipR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B45AAAA98B4EBE8F6F1584C6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZipR/Pods-ZipR-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZipR/Pods-ZipR-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZipR/Pods-ZipR-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
