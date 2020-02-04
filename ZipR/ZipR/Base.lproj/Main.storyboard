@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RVG-5X-tbt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RVG-5X-tbt">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -429,10 +429,35 @@
             </objects>
             <point key="canvasLocation" x="3016" y="-1100"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="45n-oB-VLF">
+            <objects>
+                <viewController id="WEA-vt-GaD" customClass="LoginViewController" customModule="ZipR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v5r-7t-aH7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhB-s7-AF7" customClass="GIDSignInButton">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <action selector="googleSignInPressed:" destination="WEA-vt-GaD" eventType="valueChanged" id="6GQ-Zl-gqe"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="q0J-Hp-loc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ha9-Xh-u2k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="954" y="-362"/>
+        </scene>
         <!--Default Tab Bar Controller-->
         <scene sceneID="vPK-AP-Yvy">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="RVG-5X-tbt" customClass="DefaultTabBarController" customModule="ZipR" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="DefaultTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="RVG-5X-tbt" customClass="DefaultTabBarController" customModule="ZipR" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5aI-Z5-a9P">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -443,6 +468,7 @@
                         <segue destination="z46-ju-bC5" kind="relationship" relationship="viewControllers" id="8Su-9Y-uVQ"/>
                         <segue destination="sWR-SP-cfJ" kind="relationship" relationship="viewControllers" id="lg2-bZ-hmM"/>
                         <segue destination="4Y6-uT-s2s" kind="relationship" relationship="viewControllers" id="GXY-wg-EkS"/>
+                        <segue destination="WEA-vt-GaD" kind="presentation" identifier="LoginSegue" id="egt-8P-Jae"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGG-H6-7yd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
