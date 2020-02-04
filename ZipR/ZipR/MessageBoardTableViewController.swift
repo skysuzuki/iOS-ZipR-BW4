@@ -10,21 +10,30 @@ import UIKit
 
 class MessageBoardTableViewController: UITableViewController {
 
+    let postController = PostController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        postController.fetchPosts { (error) in
+            if let _ = error {
+                print("Error")
+            } else {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return postController.posts.count
     }
 
 
@@ -33,7 +42,7 @@ class MessageBoardTableViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        // Configure the cell...
+        cell.post = postController.posts[indexPath.row]
 
         return cell
     }

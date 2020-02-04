@@ -31,7 +31,7 @@ class PostController {
     }
     
     //updates self.posts with all posts on Firebase
-    func fetchPosts() {
+    func fetchPosts(completion: @escaping (Error?) -> Void) {
         self.posts = []
         guard let ref = self.ref else { return print("here")}
         ref.child("Posts").observeSingleEvent(of: .value) { (snapshot) in
@@ -47,6 +47,7 @@ class PostController {
                 self.posts.append(post)
             }
             print("\(self.posts.count)")
+            completion(nil)
         }
     }
 }
