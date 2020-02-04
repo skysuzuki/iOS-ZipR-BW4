@@ -26,6 +26,14 @@
 				<string>com.googleusercontent.apps.448944432642-usj2jdbu6t9027al6pgnj71nmtpdnu8r</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.lambdaschool.ZipR</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
