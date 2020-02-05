@@ -3,10 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9518B93E23E8F60600843E7C /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518B93C23E8F60600843E7C /* PostController.swift */; };
+		9518B93F23E8F60600843E7C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518B93D23E8F60600843E7C /* Post.swift */; };
+		9518B94123E8F8DF00843E7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9518B94023E8F8DF00843E7C /* GoogleService-Info.plist */; };
+		951E347E23EB09CF00336A54 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E347D23EB09CF00336A54 /* CurrentUser.swift */; };
+		951E348023EB0DF900336A54 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E347F23EB0DF900336A54 /* Location.swift */; };
+		95567EE723E9E6E600DAEDC0 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95567EE623E9E6E600DAEDC0 /* Comment.swift */; };
+		95567EE923E9EA0100DAEDC0 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95567EE823E9EA0100DAEDC0 /* CommentController.swift */; };
+		95C1B98D23EA0A4A002941B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1B98C23EA0A4A002941B8 /* LoginViewController.swift */; };
 		BB05497D23E8925100EF62AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05497C23E8925100EF62AF /* AppDelegate.swift */; };
 		BB05497F23E8925100EF62AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05497E23E8925100EF62AF /* SceneDelegate.swift */; };
 		BB05498423E8925100EF62AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB05498223E8925100EF62AF /* Main.storyboard */; };
@@ -28,6 +36,14 @@
 		4CE19F75551C3724DF359EA2 /* Pods-ZipR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZipR.release.xcconfig"; path = "Target Support Files/Pods-ZipR/Pods-ZipR.release.xcconfig"; sourceTree = "<group>"; };
 		5F07FE403CAAF075EACC8329 /* Pods_ZipR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZipR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		796C28DF6171BF126851DC99 /* Pods-ZipR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZipR.debug.xcconfig"; path = "Target Support Files/Pods-ZipR/Pods-ZipR.debug.xcconfig"; sourceTree = "<group>"; };
+		9518B93C23E8F60600843E7C /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		9518B93D23E8F60600843E7C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		9518B94023E8F8DF00843E7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		951E347D23EB09CF00336A54 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		951E347F23EB0DF900336A54 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		95567EE623E9E6E600DAEDC0 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		95567EE823E9EA0100DAEDC0 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
+		95C1B98C23EA0A4A002941B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BB05497923E8925100EF62AF /* ZipR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZipR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB05497C23E8925100EF62AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB05497E23E8925100EF62AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,23 +104,63 @@
 		BB05497B23E8925100EF62AF /* ZipR */ = {
 			isa = PBXGroup;
 			children = (
+				BB0549A423E90C6600EF62AF /* View Controllers */,
+				BB0549A523E90C8B00EF62AF /* Views */,
+				BB0549A723E90CB900EF62AF /* Model Controllers */,
+				BB0549A623E90C9A00EF62AF /* Models */,
 				BB05497C23E8925100EF62AF /* AppDelegate.swift */,
 				BB05497E23E8925100EF62AF /* SceneDelegate.swift */,
+				BB05498223E8925100EF62AF /* Main.storyboard */,
+				BB05498523E8925400EF62AF /* Assets.xcassets */,
+				9518B94023E8F8DF00843E7C /* GoogleService-Info.plist */,
+				BB05498723E8925400EF62AF /* LaunchScreen.storyboard */,
+				BB05498A23E8925400EF62AF /* Info.plist */,
+			);
+			path = ZipR;
+			sourceTree = "<group>";
+		};
+		BB0549A423E90C6600EF62AF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				BB05499A23E8A85200EF62AF /* DefaultTabBarController.swift */,
+				BB05499423E8963E00EF62AF /* ProfileViewController.swift */,
 				BB05499023E895F200EF62AF /* MessageBoardTableViewController.swift */,
 				BB05499C23E8AC3700EF62AF /* CreateMessageBoardViewController.swift */,
 				BB0549A223E8D7F100EF62AF /* PostTagTableViewController.swift */,
 				BB05499E23E8C10500EF62AF /* DetailPostViewController.swift */,
 				BB05499223E8962C00EF62AF /* MyRecentActivtyTableViewController.swift */,
-				BB05499423E8963E00EF62AF /* ProfileViewController.swift */,
+				95C1B98C23EA0A4A002941B8 /* LoginViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BB0549A523E90C8B00EF62AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				BB05499623E8965000EF62AF /* MessageBoardTableViewCell.swift */,
 				BB05499823E8965D00EF62AF /* MyRecentActivityTableViewCell.swift */,
-				BB05498223E8925100EF62AF /* Main.storyboard */,
-				BB05498523E8925400EF62AF /* Assets.xcassets */,
-				BB05498723E8925400EF62AF /* LaunchScreen.storyboard */,
-				BB05498A23E8925400EF62AF /* Info.plist */,
 			);
-			path = ZipR;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BB0549A623E90C9A00EF62AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9518B93D23E8F60600843E7C /* Post.swift */,
+				95567EE623E9E6E600DAEDC0 /* Comment.swift */,
+				951E347D23EB09CF00336A54 /* CurrentUser.swift */,
+				951E347F23EB0DF900336A54 /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BB0549A723E90CB900EF62AF /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				95567EE823E9EA0100DAEDC0 /* CommentController.swift */,
+				9518B93C23E8F60600843E7C /* PostController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 		E51A11DBD837F3FB65E94280 /* Frameworks */ = {
@@ -126,6 +182,8 @@
 				BB05497523E8925100EF62AF /* Sources */,
 				BB05497623E8925100EF62AF /* Frameworks */,
 				BB05497723E8925100EF62AF /* Resources */,
+				892B17C1CB4E7599DF1BDBC4 /* [CP] Embed Pods Frameworks */,
+				B45AAAA98B4EBE8F6F1584C6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -175,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB05498923E8925400EF62AF /* LaunchScreen.storyboard in Resources */,
+				9518B94123E8F8DF00843E7C /* GoogleService-Info.plist in Resources */,
 				BB05498623E8925400EF62AF /* Assets.xcassets in Resources */,
 				BB05498423E8925100EF62AF /* Main.storyboard in Resources */,
 			);
@@ -205,6 +264,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		892B17C1CB4E7599DF1BDBC4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZipR/Pods-ZipR-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZipR/Pods-ZipR-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZipR/Pods-ZipR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B45AAAA98B4EBE8F6F1584C6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZipR/Pods-ZipR-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZipR/Pods-ZipR-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZipR/Pods-ZipR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -215,11 +308,18 @@
 				BB05499523E8963E00EF62AF /* ProfileViewController.swift in Sources */,
 				BB05499323E8962C00EF62AF /* MyRecentActivtyTableViewController.swift in Sources */,
 				BB05499123E895F200EF62AF /* MessageBoardTableViewController.swift in Sources */,
+				95567EE723E9E6E600DAEDC0 /* Comment.swift in Sources */,
+				951E348023EB0DF900336A54 /* Location.swift in Sources */,
 				BB05499723E8965000EF62AF /* MessageBoardTableViewCell.swift in Sources */,
+				9518B93F23E8F60600843E7C /* Post.swift in Sources */,
 				BB05499923E8965D00EF62AF /* MyRecentActivityTableViewCell.swift in Sources */,
+				9518B93E23E8F60600843E7C /* PostController.swift in Sources */,
 				BB0549A323E8D7F100EF62AF /* PostTagTableViewController.swift in Sources */,
 				BB05499B23E8A85200EF62AF /* DefaultTabBarController.swift in Sources */,
 				BB05497D23E8925100EF62AF /* AppDelegate.swift in Sources */,
+				951E347E23EB09CF00336A54 /* CurrentUser.swift in Sources */,
+				95567EE923E9EA0100DAEDC0 /* CommentController.swift in Sources */,
+				95C1B98D23EA0A4A002941B8 /* LoginViewController.swift in Sources */,
 				BB05499D23E8AC3700EF62AF /* CreateMessageBoardViewController.swift in Sources */,
 				BB05497F23E8925100EF62AF /* SceneDelegate.swift in Sources */,
 				BB05499F23E8C10500EF62AF /* DetailPostViewController.swift in Sources */,
@@ -368,15 +468,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VXUQXR6S56;
 				INFOPLIST_FILE = ZipR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lambdaschool.ZipR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -386,15 +489,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VXUQXR6S56;
 				INFOPLIST_FILE = ZipR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lambdaschool.ZipR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
