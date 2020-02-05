@@ -45,10 +45,12 @@ class CreateMessageBoardViewController: UIViewController {
             let user = postController.user,
             let lat = user.latitude,
             let long = user.longitude else { return }
+        let date = Date()
+        let dateString = String(date.timeIntervalSince1970)
 
         let tags = tagsView.tagViews.map { $0.titleLabel?.text ?? "" }
         
-        postController.createPost(author: user.name, title: titleString, description: descriptionString, tag: tags, lat: lat, long: long)
+        postController.createPost(author: user.name, title: titleString, description: descriptionString, tag: tags, lat: lat, long: long, date: dateString)
         delegate?.postButtonWasTapped()
     }
 
