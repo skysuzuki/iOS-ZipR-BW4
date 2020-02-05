@@ -9,11 +9,28 @@
 import UIKit
 
 class MyRecentActivtyTableViewController: UITableViewController {
-
+    
+    var postController: PostController?
+    var usersPosts: [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("Activity VC view did load")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        guard let postController = postController else { return }
+        postController.fetchPosts { (error) in
+            if let _ = error {
+                print("Error fetching user's posts")
+            } else {
+                self.usersPosts = postController.filterPostsByUserandDate(posts: postController.posts, userName: postController.user?.name ?? "")
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -25,7 +42,7 @@ class MyRecentActivtyTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return usersPosts.count
     }
 
 
@@ -33,7 +50,8 @@ class MyRecentActivtyTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecentActivityCell", for: indexPath) as? MyRecentActivityTableViewCell else {
             return UITableViewCell()
         }
-
+        
+        cell.post = usersPosts[indexPath.row]
 
         return cell
     }
