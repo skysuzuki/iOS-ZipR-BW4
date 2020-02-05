@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TagListView
 
 class DetailPostViewController: UIViewController {
 
@@ -15,6 +16,7 @@ class DetailPostViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var commentTableView: UITableView!
     @IBOutlet private weak var commentTextField: UITextField!
+    @IBOutlet private weak var tagView: TagListView!
 
     let commentController = CommentController()
     var postController: PostController?
@@ -52,11 +54,13 @@ class DetailPostViewController: UIViewController {
     }
 
     private func updateViews() {
-        guard let post = post else { return }
+        guard let post = post,
+            let tags = post.tag else { return }
 
         titleLabel.text = post.title
         authorLabel.text = post.author
         descriptionLabel.text = post.description
+        tagView.addTags(tags)
 
         if let postId = post.id {
             commentController.fetchCommentsforPost(postID: postId) { (comments, error) in

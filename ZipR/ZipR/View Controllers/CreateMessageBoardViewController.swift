@@ -21,7 +21,6 @@ class CreateMessageBoardViewController: UIViewController {
 
     var postController: PostController?
     var delegate: CreateMessageBoardViewControllerDelegate?
-    var tags = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
