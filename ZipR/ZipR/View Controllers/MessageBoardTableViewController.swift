@@ -49,45 +49,46 @@ class MessageBoardTableViewController: UITableViewController {
         }
 
         cell.post = localPosts[indexPath.row]
+        cell.delegate = self
         return cell
     }
 
 
 
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
 
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
 
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
-    }
-    */
+     }
+     */
 
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
 
 
     // MARK: - Navigation
@@ -95,26 +96,26 @@ class MessageBoardTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        switch segue.identifier {
-        case "ModalCreateMessageBoardSegue":
-            if let detailVC = segue.destination as? CreateMessageBoardViewController {
+        if let detailVC = segue.destination as? CreateMessageBoardViewController {
+            if segue.identifier == "ModalDetailPostSegue" {
                 detailVC.postController = self.postController
                 detailVC.delegate = self
             }
-            return
-        case "ModalCommentSegue", "ModalDetailPostSegue" :
-            if let detailVC = segue.destination as? DetailPostViewController,
-                let indexPath = tableView.indexPathForSelectedRow {
-                detailVC.postController = self.postController
-                detailVC.post = self.postController?.posts[indexPath.row]
+        } else if let detailVC = segue.destination as? DetailPostViewController {
+            if segue.identifier == "ModalDetailPostSegue" {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    detailVC.postController = self.postController
+                    detailVC.post = self.localPosts[indexPath.row]
+                }
+            } else if segue.identifier == "ModalCommentSegue" {
+                if let cell = sender as? MessageBoardTableViewCell,
+                    let indexPath = tableView.indexPath(for: cell) {
+                    detailVC.postController = self.postController
+                    detailVC.post = self.localPosts[indexPath.row]
+                }
             }
-            return
-        default:
-            return
         }
     }
-
-
 }
 
 extension MessageBoardTableViewController: CreateMessageBoardViewControllerDelegate {
@@ -129,5 +130,11 @@ extension MessageBoardTableViewController: CreateMessageBoardViewControllerDeleg
                 }
             }
         }
+    }
+}
+
+extension MessageBoardTableViewController: MessageBoardTableViewCellDelegate {
+    func commentButtonWasPressed(_ messageBoardCell: MessageBoardTableViewCell) {
+        self.performSegue(withIdentifier: "ModalCommentSegue", sender: messageBoardCell)
     }
 }
