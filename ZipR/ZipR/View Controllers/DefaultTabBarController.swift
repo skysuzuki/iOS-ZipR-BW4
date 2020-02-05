@@ -28,7 +28,6 @@ class DefaultTabBarController: PTCardTabBarController {
 
     private func setUpViewControllers() {
         let messageBoardTVC = self.viewControllers?[1] as? MessageBoardTableViewController
-
         messageBoardTVC?.postController = self.postController
     }
     

@@ -13,32 +13,58 @@ class DetailPostViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var authorLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var commentTableView: UITableView!
 
     let commentController = CommentController()
     var postController: PostController?
     var post: Post?
+    var comments = [Comment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        commentTableView.delegate = self
+        commentTableView.dataSource = self
         updateViews()
         // Do any additional setup after loading the view.
     }
 
     private func updateViews() {
-        if let post = post {
-            titleLabel.text = post.title
-            authorLabel.text = post.author
-            descriptionLabel.text = post.description
+        guard let post = post else { return }
 
-            
+        titleLabel.text = post.title
+        authorLabel.text = post.author
+        descriptionLabel.text = post.description
+
+        if let postId = post.id {
+            commentController.fetchCommentsforPost(postID: postId) { (comments, error) in
+//                if let error = error {
+//                    print("Error: \(error)")
+//                }
+                if let comments = comments {
+                    self.comments = comments
+                    DispatchQueue.main.async {
+                        self.commentTableView.reloadData()
+                    }
+                }
+            }
         }
     }
 
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension DetailPostViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.comments.count
     }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath)
+
+        cell.textLabel?.text = self.comments[indexPath.row].description
+        cell.detailTextLabel?.text = self.comments[indexPath.row].author
+
+        return cell
+    }
+
+
 }

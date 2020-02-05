@@ -26,7 +26,7 @@ class Post: Codable {
         self.tag = tag
         self.long = long
         self.lat = lat
-        self.id = UUID().uuidString
+        self.id = id == nil ? UUID().uuidString : id
     }
     
     convenience init?(dictionary: [String: Any]) {
