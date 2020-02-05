@@ -15,7 +15,7 @@ class DefaultTabBarController: PTCardTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUpViewControllers()
     }
     
     override func viewWillLayoutSubviews() {
@@ -26,6 +26,11 @@ class DefaultTabBarController: PTCardTabBarController {
         }
     }
 
+    private func setUpViewControllers() {
+        let messageBoardTVC = self.viewControllers?[1] as? MessageBoardTableViewController
+
+        messageBoardTVC?.postController = self.postController
+    }
     
     // MARK: - Navigation
 

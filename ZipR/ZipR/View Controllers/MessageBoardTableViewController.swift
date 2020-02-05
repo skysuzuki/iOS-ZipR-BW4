@@ -10,12 +10,12 @@ import UIKit
 
 class MessageBoardTableViewController: UITableViewController {
 
-    let postController = PostController()
+    var postController: PostController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        postController.fetchPosts { (error) in
+        postController?.fetchPosts { (error) in
             if let _ = error {
                 print("Error")
             } else {
@@ -33,7 +33,7 @@ class MessageBoardTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postController.posts.count
+        return postController?.posts.count ?? 0
     }
 
 
@@ -42,7 +42,7 @@ class MessageBoardTableViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        cell.post = postController.posts[indexPath.row]
+        cell.post = postController?.posts[indexPath.row]
         return cell
     }
 
@@ -100,7 +100,7 @@ class MessageBoardTableViewController: UITableViewController {
             if let detailVC = segue.destination as? DetailPostViewController,
                 let indexPath = tableView.indexPathForSelectedRow {
                 detailVC.postController = self.postController
-                detailVC.post = self.postController.posts[indexPath.row]
+                detailVC.post = self.postController?.posts[indexPath.row]
             }
             return
         default:
@@ -113,7 +113,7 @@ class MessageBoardTableViewController: UITableViewController {
 
 extension MessageBoardTableViewController: CreateMessageBoardViewControllerDelegate {
     func postButtonWasTapped() {
-        postController.fetchPosts { (error) in
+        postController?.fetchPosts { (error) in
             if let _ = error {
                 print("Error")
             } else {

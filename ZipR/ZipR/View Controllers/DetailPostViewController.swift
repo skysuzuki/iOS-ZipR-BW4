@@ -14,6 +14,7 @@ class DetailPostViewController: UIViewController {
     @IBOutlet private weak var authorLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
 
+    let commentController = CommentController()
     var postController: PostController?
     var post: Post?
     
@@ -28,6 +29,8 @@ class DetailPostViewController: UIViewController {
             titleLabel.text = post.title
             authorLabel.text = post.author
             descriptionLabel.text = post.description
+
+            
         }
     }
 
