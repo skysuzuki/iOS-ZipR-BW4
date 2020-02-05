@@ -42,12 +42,18 @@ class PostTagTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath)
 
-        // Configure the cell...
         cell.textLabel?.text = Tag.allCases[indexPath.row].rawValue.capitalized
+        //cell.imageView?.image = UIImage(systemName: "checkmark")
 
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath)
+
+        //cell.imageView?.image = UIImage(systemName: "checkmark")
+
+    }
 
 
 }

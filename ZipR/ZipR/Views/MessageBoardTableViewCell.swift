@@ -27,6 +27,6 @@ class MessageBoardTableViewCell: UITableViewCell {
         guard let post = post else { return print("No Post!") }
         authorLabel.text = post.author
         titleLabel.text = post.title
-        tagListView.addTags(post.tag ?? [])
+        tagListView.addTags(post.tag?.map({ $0.capitalized }) ?? [])
     }
 }
