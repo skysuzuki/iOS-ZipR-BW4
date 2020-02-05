@@ -29,6 +29,23 @@ class DefaultTabBarController: PTCardTabBarController {
     private func setUpViewControllers() {
         let messageBoardTVC = self.viewControllers?[1] as? MessageBoardTableViewController
         messageBoardTVC?.postController = self.postController
+        
+        let activityTVC = self.viewControllers?[0] as? MyRecentActivtyTableViewController
+        activityTVC?.postController = self.postController
+//        activityTVC?.usersPosts = fetchUsersPosts()
+//        activityTVC?.tableView.reloadData()
+    }
+    
+    private func fetchUsersPosts() -> [Post] {
+        var posts: [Post] = []
+        self.postController.fetchPosts { (error) in
+            if let _ = error {
+                print("Error fetching user's posts")
+            } else {
+                posts = self.postController.filterPostsByUserandDate(posts: self.postController.posts, userName: self.postController.user?.name ?? "")
+            }
+        }
+        return posts
     }
     
     // MARK: - Navigation
