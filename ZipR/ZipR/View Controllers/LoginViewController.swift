@@ -43,9 +43,9 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                     guard let coordinate = coordinate else { return }
                     let lat = coordinate.latitude
                     let long = coordinate.longitude
-                    let latInt = Int(lat)
-                    let longInt = Int(long)
-                    let loggeduser = CurrentUser(name: name, longitude: longInt, latitude: latInt)
+                    let latString = String(lat)
+                    let longString = String(long)
+                    let loggeduser = CurrentUser(name: name, longitude: longString, latitude: latString)
                     self.postController?.user = loggeduser
                     print("Welcome \(name)")
                     self.dismiss(animated: true, completion: nil)

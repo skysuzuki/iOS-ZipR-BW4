@@ -10,6 +10,6 @@ import Foundation
 
 struct CurrentUser {
     let name: String
-    let longitude: Int?
-    let latitude: Int?
+    let longitude: String?
+    let latitude: String?
 }
