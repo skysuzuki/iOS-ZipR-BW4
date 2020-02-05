@@ -11,6 +11,7 @@ import FirebaseDatabase
 
 class PostController {
     
+    var user: CurrentUser?
     var ref: DatabaseReference!
     var posts: [Post] = []
     
@@ -18,8 +19,9 @@ class PostController {
         ref = Database.database().reference()
     }
     
-    func createPost(author: String, title: String, description: String) {
-        let post = Post(authorName: author, title: title, description: description, id: nil)
+    func createPost(author: String, title: String, description: String, tag: [String]) {
+        let post = Post(authorName: author, title: title, description: description, tag: tag, long: 0, lat: 0, id: nil)
+        //let post = Post(authorName: author, title: title, description: description, id: nil)
         self.ref.child("Posts").child(post.id ?? UUID().uuidString).setValue(post.dictionaryRepresentation) { (error:Error?, ref:DatabaseReference) in
             if let error = error {
                 print("Data could not be saved: \(error).")

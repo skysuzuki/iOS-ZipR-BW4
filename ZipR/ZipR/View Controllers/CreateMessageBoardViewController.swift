@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TagListView
 
 protocol CreateMessageBoardViewControllerDelegate {
     func postButtonWasTapped()
@@ -16,6 +17,7 @@ class CreateMessageBoardViewController: UIViewController {
 
     @IBOutlet private weak var titleTextField: UITextField!
     @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var tagsView: TagListView!
 
     var postController: PostController?
     var delegate: CreateMessageBoardViewControllerDelegate?
@@ -23,8 +25,6 @@ class CreateMessageBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTextView()
-
-
     }
 
     private func setUpTextView() {
@@ -40,9 +40,13 @@ class CreateMessageBoardViewController: UIViewController {
         guard let titleString = titleTextField.text,
             !titleString.isEmpty,
             let descriptionString = descriptionTextView.text,
-            !descriptionString.isEmpty else { return }
+            !descriptionString.isEmpty,
+            let postController = postController,
+            let user = postController.user else { return }
 
-        postController?.createPost(author: "Skyler", title: titleString, description: descriptionString)
+        let tags = tagsView.tagViews.map { $0.titleLabel?.text ?? "" }
+        
+        postController.createPost(author: user.name, title: titleString, description: descriptionString, tag: tags)
         delegate?.postButtonWasTapped()
     }
 
@@ -51,15 +55,13 @@ class CreateMessageBoardViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    /*
-     // MARK: - Navigation
 
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     // MARK: - Navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+        if let tagVC = segue.destination as? PostTagTableViewController {
+            tagVC.delegate = self
+        }
      }
-     */
 
 }
 
@@ -106,4 +108,10 @@ extension CreateMessageBoardViewController: UITextViewDelegate {
      }
      }
      */
+}
+
+extension CreateMessageBoardViewController: PostTagTableViewControllerDelegate {
+    func tagsWerePicked(_ tags: [String]) {
+        tagsView.addTags(tags)
+    }
 }

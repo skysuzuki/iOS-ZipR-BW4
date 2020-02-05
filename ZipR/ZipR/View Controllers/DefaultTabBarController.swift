@@ -7,24 +7,45 @@
 //
 
 import UIKit
+import PTCardTabBar
 
-class DefaultTabBarController: UITabBarController {
+class DefaultTabBarController: PTCardTabBarController {
+    
+    let postController = PostController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpViewControllers()
     }
     
+    override func viewWillLayoutSubviews() {
+        if let user = postController.user {
+            print("Welcome \(user.name)")
+        } else {
+            self.performSegue(withIdentifier: "LoginSegue", sender: self)
+        }
+    }
 
-    /*
+    private func setUpViewControllers() {
+        let messageBoardTVC = self.viewControllers?[1] as? MessageBoardTableViewController
+        messageBoardTVC?.postController = self.postController
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "LoginSegue" {
+            let destinationVC = segue.destination as? LoginViewController
+            destinationVC?.postController = postController
+        }
     }
-    */
+    
 
+}
+
+struct CurrentUser {
+    let name: String
+    let longitude: Int?
+    let latitude: Int?
 }
