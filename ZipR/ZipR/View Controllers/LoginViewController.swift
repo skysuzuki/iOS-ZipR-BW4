@@ -38,10 +38,18 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             } else {
                 print("Login Successful.")
                 guard let name = user.profile.name else { return }
-                let loggeduser = CurrentUser(name: name, longitude: nil, latitude: nil)
-                self.postController?.user = loggeduser
-                print("Welcome \(name)")
-                self.dismiss(animated: true, completion: nil)
+                
+                Location.shared.getCurrentLocation { (coordinate) in
+                    guard let coordinate = coordinate else { return }
+                    let lat = coordinate.latitude
+                    let long = coordinate.longitude
+                    let latInt = Int(lat)
+                    let longInt = Int(long)
+                    let loggeduser = CurrentUser(name: name, longitude: longInt, latitude: latInt)
+                    self.postController?.user = loggeduser
+                    print("Welcome \(name)")
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }

@@ -42,11 +42,13 @@ class CreateMessageBoardViewController: UIViewController {
             let descriptionString = descriptionTextView.text,
             !descriptionString.isEmpty,
             let postController = postController,
-            let user = postController.user else { return }
+            let user = postController.user,
+            let lat = user.latitude,
+            let long = user.longitude else { return }
 
         let tags = tagsView.tagViews.map { $0.titleLabel?.text ?? "" }
         
-        postController.createPost(author: user.name, title: titleString, description: descriptionString, tag: tags)
+        postController.createPost(author: user.name, title: titleString, description: descriptionString, tag: tags, lat: lat, long: long)
         delegate?.postButtonWasTapped()
     }
 
