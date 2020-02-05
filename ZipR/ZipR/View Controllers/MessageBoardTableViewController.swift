@@ -11,25 +11,26 @@ import UIKit
 class MessageBoardTableViewController: UITableViewController {
 
     var postController: PostController?
+    var usersLat: String = "0"
+    var usersLong: String = "0"
+    var localPosts: [Post] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        postController?.fetchPosts { (error) in
+        guard let postController = postController else { return }
+        postController.fetchPosts { (error) in
             if let _ = error {
                 print("Error")
             } else {
+                self.usersLat = postController.user?.latitude ?? ""
+                self.usersLong = postController.user?.longitude ?? ""
+                self.localPosts = postController.parsePosts(lat: self.usersLat, long: self.usersLong)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             }
         }
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(true)
-//        print("\(postController?.user?.longitude)")
-//    }
 
     // MARK: - Table view data source
 
@@ -38,7 +39,7 @@ class MessageBoardTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postController?.posts.count ?? 0
+        return localPosts.count
     }
 
 
@@ -47,7 +48,7 @@ class MessageBoardTableViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        cell.post = postController?.posts[indexPath.row]
+        cell.post = localPosts[indexPath.row]
         return cell
     }
 
@@ -122,6 +123,7 @@ extension MessageBoardTableViewController: CreateMessageBoardViewControllerDeleg
             if let _ = error {
                 print("Error")
             } else {
+                self.localPosts = self.postController?.parsePosts(lat: self.usersLat, long: self.usersLong) ?? []
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

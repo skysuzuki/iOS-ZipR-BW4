@@ -19,7 +19,7 @@ class PostController {
         ref = Database.database().reference()
     }
     
-    func createPost(author: String, title: String, description: String, tag: [String], lat: Int, long: Int) {
+    func createPost(author: String, title: String, description: String, tag: [String], lat: String, long: String) {
         let post = Post(authorName: author, title: title, description: description, tag: tag, long: long, lat: lat, id: nil)
         //let post = Post(authorName: author, title: title, description: description, id: nil)
         self.ref.child("Posts").child(post.id ?? UUID().uuidString).setValue(post.dictionaryRepresentation) { (error:Error?, ref:DatabaseReference) in
@@ -51,5 +51,20 @@ class PostController {
             print("\(self.posts.count)")
             completion(nil)
         }
+    }
+    
+    func parsePosts(lat: String, long: String) -> [Post] {
+        var parsedPosts: [Post] = []
+        guard let usersLat = Double(lat),
+            let usersLong = Double(long) else { return []}
+        
+
+        for post in posts {
+            guard let latitude = post.lat, let longitude = post.long, let postLat = Double(latitude), let postLong = Double(longitude) else { return [] }
+            if (postLat <= (usersLat + 1.0) && postLat >= (usersLat - 1.0)) && (postLong <= (usersLong + 1.0) && postLong >= (usersLong - 1.0))  {
+                parsedPosts.append(post)
+            }
+        }
+        return parsedPosts
     }
 }

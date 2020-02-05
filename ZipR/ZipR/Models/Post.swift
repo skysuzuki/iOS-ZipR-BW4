@@ -14,12 +14,12 @@ class Post: Codable {
     let title: String
     let description: String
     let tag: [Tag.RawValue]?
-    let long: Int?
-    let lat: Int?
+    let long: String?
+    let lat: String?
     let id: String?
     
-    init(authorName: String, title: String, description: String, tag: [String] = [Tag.general.rawValue], long: Int = 0, lat: Int = 0, id: String?) {
-
+    init(authorName: String, title: String, description: String, tag: [String] = [Tag.general.rawValue], long: String = "", lat: String = "", id: String?) {
+    
         self.author = authorName
         self.title = title
         self.description = description
@@ -34,8 +34,8 @@ class Post: Codable {
             let identifier = dictionary["id"] as? String,
             let description = dictionary["description"] as? String,
             let title = dictionary["title"] as? String,
-            let latitude = dictionary["latitude"] as? Int,
-            let longitude = dictionary["longitude"] as? Int else { return nil }
+            let latitude = dictionary["latitude"] as? String,
+            let longitude = dictionary["longitude"] as? String else { return nil }
 
 
         if let tags = dictionary["tags"] as? [String] {
@@ -47,7 +47,7 @@ class Post: Codable {
     }
     
     var dictionaryRepresentation: [String: Any] {
-        return ["author": author, "title": title, "description": description, "tags": tag as Any, "id": id!, "latitude": lat ?? 0, "longitude": long ?? 0]
+        return ["author": author, "title": title, "description": description, "tags": tag as Any, "id": id!, "latitude": lat ?? "", "longitude": long ?? ""]
       }
 }
 
