@@ -8,6 +8,7 @@
 
 import UIKit
 import PTCardTabBar
+import CoreLocation
 
 class DefaultTabBarController: PTCardTabBarController {
     
@@ -19,13 +20,12 @@ class DefaultTabBarController: PTCardTabBarController {
     }
     
     override func viewWillLayoutSubviews() {
-        if let user = postController.user {
-            print("Welcome \(user.name)")
-        } else {
+        
+        guard let _ = postController.user else {
             self.performSegue(withIdentifier: "LoginSegue", sender: self)
+            return
         }
     }
-
     private func setUpViewControllers() {
         let messageBoardTVC = self.viewControllers?[1] as? MessageBoardTableViewController
         messageBoardTVC?.postController = self.postController
@@ -40,12 +40,5 @@ class DefaultTabBarController: PTCardTabBarController {
             destinationVC?.postController = postController
         }
     }
-    
-
 }
 
-struct CurrentUser {
-    let name: String
-    let longitude: Int?
-    let latitude: Int?
-}

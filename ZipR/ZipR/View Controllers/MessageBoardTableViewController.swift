@@ -25,6 +25,11 @@ class MessageBoardTableViewController: UITableViewController {
             }
         }
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//        print("\(postController?.user?.longitude)")
+//    }
 
     // MARK: - Table view data source
 

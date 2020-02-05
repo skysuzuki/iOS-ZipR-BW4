@@ -33,19 +33,21 @@ class Post: Codable {
         guard let author = dictionary["author"] as? String,
             let identifier = dictionary["id"] as? String,
             let description = dictionary["description"] as? String,
-            let title = dictionary["title"] as? String else { return nil }
+            let title = dictionary["title"] as? String,
+            let latitude = dictionary["latitude"] as? Int,
+            let longitude = dictionary["longitude"] as? Int else { return nil }
 
 
         if let tags = dictionary["tags"] as? [String] {
-            self.init(authorName: author, title: title, description: description, tag: tags, id: identifier)
+            self.init(authorName: author, title: title, description: description, tag: tags, long: longitude, lat: latitude, id: identifier)
             return
         }
 
-        self.init(authorName: author, title: title, description: description, id: identifier)
+        self.init(authorName: author, title: title, description: description, long: longitude, lat: latitude, id: identifier)
     }
     
     var dictionaryRepresentation: [String: Any] {
-        return ["author": author, "title": title, "description": description, "tags": tag as Any, "id": id!]
+        return ["author": author, "title": title, "description": description, "tags": tag as Any, "id": id!, "latitude": lat ?? 0, "longitude": long ?? 0]
       }
 }
 

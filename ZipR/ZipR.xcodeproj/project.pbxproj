@@ -10,6 +10,8 @@
 		9518B93E23E8F60600843E7C /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518B93C23E8F60600843E7C /* PostController.swift */; };
 		9518B93F23E8F60600843E7C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518B93D23E8F60600843E7C /* Post.swift */; };
 		9518B94123E8F8DF00843E7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9518B94023E8F8DF00843E7C /* GoogleService-Info.plist */; };
+		951E347E23EB09CF00336A54 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E347D23EB09CF00336A54 /* CurrentUser.swift */; };
+		951E348023EB0DF900336A54 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E347F23EB0DF900336A54 /* Location.swift */; };
 		95567EE723E9E6E600DAEDC0 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95567EE623E9E6E600DAEDC0 /* Comment.swift */; };
 		95567EE923E9EA0100DAEDC0 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95567EE823E9EA0100DAEDC0 /* CommentController.swift */; };
 		95C1B98D23EA0A4A002941B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C1B98C23EA0A4A002941B8 /* LoginViewController.swift */; };
@@ -37,6 +39,8 @@
 		9518B93C23E8F60600843E7C /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		9518B93D23E8F60600843E7C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		9518B94023E8F8DF00843E7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		951E347D23EB09CF00336A54 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		951E347F23EB0DF900336A54 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		95567EE623E9E6E600DAEDC0 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		95567EE823E9EA0100DAEDC0 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		95C1B98C23EA0A4A002941B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -142,8 +146,10 @@
 		BB0549A623E90C9A00EF62AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				95567EE623E9E6E600DAEDC0 /* Comment.swift */,
 				9518B93D23E8F60600843E7C /* Post.swift */,
+				95567EE623E9E6E600DAEDC0 /* Comment.swift */,
+				951E347D23EB09CF00336A54 /* CurrentUser.swift */,
+				951E347F23EB0DF900336A54 /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 				BB05499323E8962C00EF62AF /* MyRecentActivtyTableViewController.swift in Sources */,
 				BB05499123E895F200EF62AF /* MessageBoardTableViewController.swift in Sources */,
 				95567EE723E9E6E600DAEDC0 /* Comment.swift in Sources */,
+				951E348023EB0DF900336A54 /* Location.swift in Sources */,
 				BB05499723E8965000EF62AF /* MessageBoardTableViewCell.swift in Sources */,
 				9518B93F23E8F60600843E7C /* Post.swift in Sources */,
 				BB05499923E8965D00EF62AF /* MyRecentActivityTableViewCell.swift in Sources */,
@@ -310,6 +317,7 @@
 				BB0549A323E8D7F100EF62AF /* PostTagTableViewController.swift in Sources */,
 				BB05499B23E8A85200EF62AF /* DefaultTabBarController.swift in Sources */,
 				BB05497D23E8925100EF62AF /* AppDelegate.swift in Sources */,
+				951E347E23EB09CF00336A54 /* CurrentUser.swift in Sources */,
 				95567EE923E9EA0100DAEDC0 /* CommentController.swift in Sources */,
 				95C1B98D23EA0A4A002941B8 /* LoginViewController.swift in Sources */,
 				BB05499D23E8AC3700EF62AF /* CreateMessageBoardViewController.swift in Sources */,
