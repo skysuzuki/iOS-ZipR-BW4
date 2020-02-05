@@ -48,9 +48,13 @@ class PostController {
                         continue }
                 self.posts.append(post)
             }
-            print("\(self.posts.count)")
             completion(nil)
         }
+    }
+    
+    func deletePostandItsComments(postId: String) {
+        self.ref.child("Posts").child(postId).removeValue()
+        self.ref.child("Comments").child(postId).removeValue()
     }
     
     func parsePosts(lat: String, long: String) -> [Post] {
