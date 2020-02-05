@@ -31,14 +31,14 @@
                         </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageBoardCell" id="Ne7-3r-pOZ" customClass="MessageBoardTableViewCell" customModule="ZipR" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="173"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="207"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ne7-3r-pOZ" id="vfY-Ea-ZLu">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="207"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GQ5-9i-T27">
-                                            <rect key="frame" x="20" y="21" width="374" height="91"/>
+                                            <rect key="frame" x="20" y="21" width="374" height="125"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad6-Vz-cYl">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="18.333333333333332"/>
@@ -47,11 +47,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="se7-ND-t7g" customClass="TagListView" customModule="TagListView">
-                                                    <rect key="frame" x="0.0" y="26.333333333333336" width="374" height="16"/>
+                                                    <rect key="frame" x="0.0" y="26.333333333333336" width="374" height="50.000000000000007"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyf-94-REs">
-                                                    <rect key="frame" x="0.0" y="50.333333333333329" width="374" height="40.666666666666671"/>
+                                                    <rect key="frame" x="0.0" y="84.333333333333329" width="374" height="40.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -59,7 +59,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rp2-Te-oTC">
-                                            <rect key="frame" x="19.999999999999996" y="122" width="53.666666666666657" height="30"/>
+                                            <rect key="frame" x="19.999999999999996" y="156" width="53.666666666666657" height="30"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeG-lJ-2Jb">
                                                     <rect key="frame" x="0.0" y="0.0" width="10.666666666666666" height="30"/>
@@ -138,12 +138,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="16"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R3x-OH-pfS">
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R3x-OH-pfS">
                                         <rect key="frame" x="0.0" y="24" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5NS-RP-DOV">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5NS-RP-DOV">
                                         <rect key="frame" x="0.0" y="66" width="374" height="630"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -177,6 +177,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionTextView" destination="5NS-RP-DOV" id="jQh-LD-ez9"/>
+                        <outlet property="tagsView" destination="emQ-uQ-eg3" id="oEL-TL-6da"/>
                         <outlet property="titleTextField" destination="R3x-OH-pfS" id="QoO-h6-zcn"/>
                     </connections>
                 </viewController>
@@ -242,7 +243,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gkF-uS-oN0">
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gkF-uS-oN0">
                                 <rect key="frame" x="20" y="20" width="374" height="119"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQv-TB-bdW">

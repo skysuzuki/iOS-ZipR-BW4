@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PostTagTableViewControllerDelegate {
-    func tagsWerePicked()
+    func tagsWerePicked(_ tags: [String])
 }
 
 class PostTagTableViewController: UITableViewController {
@@ -30,19 +30,17 @@ class PostTagTableViewController: UITableViewController {
     }
 
     @IBAction private func doneButtonTapped(_ sender: UIBarButtonItem) {
-        delegate?.tagsWerePicked()
+        delegate?.tagsWerePicked(tags)
         self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return Tag.allCases.count
     }
 
@@ -53,7 +51,6 @@ class PostTagTableViewController: UITableViewController {
         let tagString = Tag.allCases[indexPath.row].rawValue
         cell.textLabel?.text = tagString.capitalized
         cell.imageView?.image = toggleTag(tagString) ? UIImage(systemName: "checkmark") : nil
-        //cell.imageView?.image = UIImage(systemName: "checkmark")
 
         return cell
     }
