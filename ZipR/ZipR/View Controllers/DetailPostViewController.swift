@@ -14,6 +14,7 @@ class DetailPostViewController: UIViewController {
     @IBOutlet private weak var authorLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var commentTableView: UITableView!
+    @IBOutlet private weak var commentTextField: UITextField!
 
     let commentController = CommentController()
     var postController: PostController?
@@ -24,8 +25,30 @@ class DetailPostViewController: UIViewController {
         super.viewDidLoad()
         commentTableView.delegate = self
         commentTableView.dataSource = self
+        commentTextField.delegate = self
         updateViews()
         // Do any additional setup after loading the view.
+    }
+
+    private func postComment() {
+        guard let commentText = commentTextField.text,
+            !commentText.isEmpty,
+            let post = post,
+            let postID = post.id,
+            let postController = postController,
+            let user = postController.user else { return }
+
+
+        commentController.createComment(author: user.name, description: commentText, postID: postID)
+        commentController.fetchCommentsforPost(postID: postID) { (comments, error) in
+            if let comments = comments {
+                self.comments = comments
+                DispatchQueue.main.async {
+                    self.commentTableView.reloadData()
+                }
+            }
+        }
+        commentTextField.text = nil
     }
 
     private func updateViews() {
@@ -37,9 +60,9 @@ class DetailPostViewController: UIViewController {
 
         if let postId = post.id {
             commentController.fetchCommentsforPost(postID: postId) { (comments, error) in
-//                if let error = error {
-//                    print("Error: \(error)")
-//                }
+                //                if let error = error {
+                //                    print("Error: \(error)")
+                //                }
                 if let comments = comments {
                     self.comments = comments
                     DispatchQueue.main.async {
@@ -65,6 +88,12 @@ extension DetailPostViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
+}
 
+extension DetailPostViewController: UITextFieldDelegate {
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        postComment()
+        return true
+    }
 }

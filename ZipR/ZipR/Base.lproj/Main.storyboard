@@ -323,6 +323,7 @@
                     <connections>
                         <outlet property="authorLabel" destination="oQv-TB-bdW" id="ZDa-eY-oJn"/>
                         <outlet property="commentTableView" destination="OdI-Vx-ZU4" id="hHB-v2-bUH"/>
+                        <outlet property="commentTextField" destination="8tE-c0-Jyw" id="ECF-ze-pUo"/>
                         <outlet property="descriptionLabel" destination="kv4-cH-rlm" id="FMM-6P-DQd"/>
                         <outlet property="titleLabel" destination="mQK-gU-emr" id="RnA-Yq-M98"/>
                     </connections>
