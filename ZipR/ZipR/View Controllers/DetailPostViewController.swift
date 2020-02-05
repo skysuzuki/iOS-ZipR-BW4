@@ -42,7 +42,7 @@ class DetailPostViewController: UIViewController {
 
 
         commentController.createComment(author: user.name, description: commentText, postID: postID)
-        commentController.fetchCommentsforPost(postID: postID) { (comments, error) in
+        commentController.fetchCommentsforPost(postID: postID) { (comments) in
             if let comments = comments {
                 self.comments = comments
                 DispatchQueue.main.async {
@@ -63,10 +63,7 @@ class DetailPostViewController: UIViewController {
         tagView.addTags(tags)
 
         if let postId = post.id {
-            commentController.fetchCommentsforPost(postID: postId) { (comments, error) in
-                //                if let error = error {
-                //                    print("Error: \(error)")
-                //                }
+            commentController.fetchCommentsforPost(postID: postId) { (comments) in
                 if let comments = comments {
                     self.comments = comments
                     DispatchQueue.main.async {
@@ -76,7 +73,6 @@ class DetailPostViewController: UIViewController {
             }
         }
     }
-
 }
 
 extension DetailPostViewController: UITableViewDelegate, UITableViewDataSource {

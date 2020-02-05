@@ -97,7 +97,7 @@ class MessageBoardTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if let detailVC = segue.destination as? CreateMessageBoardViewController {
-            if segue.identifier == "ModalDetailPostSegue" {
+            if segue.identifier == "ModalCreateMessageBoardSegue" {
                 detailVC.postController = self.postController
                 detailVC.delegate = self
             }
