@@ -106,9 +106,6 @@
 				BB0549A623E90C9A00EF62AF /* Models */,
 				BB05497C23E8925100EF62AF /* AppDelegate.swift */,
 				BB05497E23E8925100EF62AF /* SceneDelegate.swift */,
-				95567EE623E9E6E600DAEDC0 /* Comment.swift */,
-				95567EE823E9EA0100DAEDC0 /* CommentController.swift */,
-				95C1B98C23EA0A4A002941B8 /* LoginViewController.swift */,
 				BB05498223E8925100EF62AF /* Main.storyboard */,
 				BB05498523E8925400EF62AF /* Assets.xcassets */,
 				9518B94023E8F8DF00843E7C /* GoogleService-Info.plist */,
@@ -128,6 +125,7 @@
 				BB0549A223E8D7F100EF62AF /* PostTagTableViewController.swift */,
 				BB05499E23E8C10500EF62AF /* DetailPostViewController.swift */,
 				BB05499223E8962C00EF62AF /* MyRecentActivtyTableViewController.swift */,
+				95C1B98C23EA0A4A002941B8 /* LoginViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -144,6 +142,7 @@
 		BB0549A623E90C9A00EF62AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				95567EE623E9E6E600DAEDC0 /* Comment.swift */,
 				9518B93D23E8F60600843E7C /* Post.swift */,
 			);
 			path = Models;
@@ -152,6 +151,7 @@
 		BB0549A723E90CB900EF62AF /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				95567EE823E9EA0100DAEDC0 /* CommentController.swift */,
 				9518B93C23E8F60600843E7C /* PostController.swift */,
 			);
 			path = "Model Controllers";
