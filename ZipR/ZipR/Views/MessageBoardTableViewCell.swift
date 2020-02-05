@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import TagListView
 
 class MessageBoardTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
-    @IBOutlet private weak var tagCollectionView: UICollectionView!
+    @IBOutlet private weak var tagListView: TagListView!
     @IBOutlet private weak var authorLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var commentNumberLabel: UILabel!
@@ -26,12 +27,6 @@ class MessageBoardTableViewCell: UITableViewCell {
         guard let post = post else { return print("No Post!") }
         authorLabel.text = post.author
         titleLabel.text = post.title
-    }
-
-    func setCollectionViewDataSourceDelegte(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, forRow row: Int) {
-        tagCollectionView.delegate = dataSourceDelegate
-        tagCollectionView.dataSource = dataSourceDelegate
-        tagCollectionView.tag = row
-        tagCollectionView.reloadData()
+        tagListView.addTags(post.tag?.map({ $0.capitalized }) ?? [])
     }
 }

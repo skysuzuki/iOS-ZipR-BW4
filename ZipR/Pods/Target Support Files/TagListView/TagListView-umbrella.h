@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double TaggerKitVersionNumber;
-FOUNDATION_EXPORT const unsigned char TaggerKitVersionString[];
+FOUNDATION_EXPORT double TagListViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char TagListViewVersionString[];
 

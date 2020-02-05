@@ -100,7 +100,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - PTCardTabBar (1.0.1)
-  - TaggerKit (0.6.1)
+  - TagListView (1.4.0)
 
 DEPENDENCIES:
   - Firebase
@@ -109,7 +109,7 @@ DEPENDENCIES:
   - Firebase/Database
   - GoogleSignIn
   - PTCardTabBar
-  - TaggerKit
+  - TagListView
 
 SPEC REPOS:
   trunk:
@@ -133,7 +133,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PTCardTabBar
-    - TaggerKit
+    - TagListView
 
 SPEC CHECKSUMS:
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
@@ -156,8 +156,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PTCardTabBar: 9112a6d4eb2b73da9cf4e7f3aefe04504479cf98
-  TaggerKit: e88422048a006b409a37b37f24785dfcca69b5b2
+  TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: 8e62ed1061667822a186b7bf617a5b12e3b2f00b
+PODFILE CHECKSUM: ff15cdf8b6dc4d98fb2e9b4bfab9e9874599d678
 
 COCOAPODS: 1.8.4

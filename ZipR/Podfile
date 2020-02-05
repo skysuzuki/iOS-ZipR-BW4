@@ -12,5 +12,5 @@ pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'GoogleSignIn'
 pod 'PTCardTabBar'
-pod 'TaggerKit'
+pod 'TagListView'
 end

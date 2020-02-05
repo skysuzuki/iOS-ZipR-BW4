@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import PTCardTabBar
 
-class DefaultTabBarController: UITabBarController {
+class DefaultTabBarController: PTCardTabBarController {
     
     let postController = PostController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUpViewControllers()
     }
     
     override func viewWillLayoutSubviews() {
@@ -25,6 +26,10 @@ class DefaultTabBarController: UITabBarController {
         }
     }
 
+    private func setUpViewControllers() {
+        let messageBoardTVC = self.viewControllers?[1] as? MessageBoardTableViewController
+        messageBoardTVC?.postController = self.postController
+    }
     
     // MARK: - Navigation
 

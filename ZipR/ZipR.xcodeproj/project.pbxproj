@@ -27,7 +27,6 @@
 		BB05499D23E8AC3700EF62AF /* CreateMessageBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05499C23E8AC3700EF62AF /* CreateMessageBoardViewController.swift */; };
 		BB05499F23E8C10500EF62AF /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05499E23E8C10500EF62AF /* DetailPostViewController.swift */; };
 		BB0549A323E8D7F100EF62AF /* PostTagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0549A223E8D7F100EF62AF /* PostTagTableViewController.swift */; };
-		BB0549A923E9E41A00EF62AF /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0549A823E9E41A00EF62AF /* TagCollectionViewCell.swift */; };
 		C23784A42AEB87236E5E146D /* Pods_ZipR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F07FE403CAAF075EACC8329 /* Pods_ZipR.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +56,6 @@
 		BB05499C23E8AC3700EF62AF /* CreateMessageBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMessageBoardViewController.swift; sourceTree = "<group>"; };
 		BB05499E23E8C10500EF62AF /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
 		BB0549A223E8D7F100EF62AF /* PostTagTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTagTableViewController.swift; sourceTree = "<group>"; };
-		BB0549A823E9E41A00EF62AF /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +106,6 @@
 				BB0549A623E90C9A00EF62AF /* Models */,
 				BB05497C23E8925100EF62AF /* AppDelegate.swift */,
 				BB05497E23E8925100EF62AF /* SceneDelegate.swift */,
-				95567EE623E9E6E600DAEDC0 /* Comment.swift */,
-				95567EE823E9EA0100DAEDC0 /* CommentController.swift */,
-				95C1B98C23EA0A4A002941B8 /* LoginViewController.swift */,
 				BB05498223E8925100EF62AF /* Main.storyboard */,
 				BB05498523E8925400EF62AF /* Assets.xcassets */,
 				9518B94023E8F8DF00843E7C /* GoogleService-Info.plist */,
@@ -130,6 +125,7 @@
 				BB0549A223E8D7F100EF62AF /* PostTagTableViewController.swift */,
 				BB05499E23E8C10500EF62AF /* DetailPostViewController.swift */,
 				BB05499223E8962C00EF62AF /* MyRecentActivtyTableViewController.swift */,
+				95C1B98C23EA0A4A002941B8 /* LoginViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -139,7 +135,6 @@
 			children = (
 				BB05499623E8965000EF62AF /* MessageBoardTableViewCell.swift */,
 				BB05499823E8965D00EF62AF /* MyRecentActivityTableViewCell.swift */,
-				BB0549A823E9E41A00EF62AF /* TagCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +142,7 @@
 		BB0549A623E90C9A00EF62AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				95567EE623E9E6E600DAEDC0 /* Comment.swift */,
 				9518B93D23E8F60600843E7C /* Post.swift */,
 			);
 			path = Models;
@@ -155,6 +151,7 @@
 		BB0549A723E90CB900EF62AF /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				95567EE823E9EA0100DAEDC0 /* CommentController.swift */,
 				9518B93C23E8F60600843E7C /* PostController.swift */,
 			);
 			path = "Model Controllers";
@@ -305,7 +302,6 @@
 				BB05499523E8963E00EF62AF /* ProfileViewController.swift in Sources */,
 				BB05499323E8962C00EF62AF /* MyRecentActivtyTableViewController.swift in Sources */,
 				BB05499123E895F200EF62AF /* MessageBoardTableViewController.swift in Sources */,
-				BB0549A923E9E41A00EF62AF /* TagCollectionViewCell.swift in Sources */,
 				95567EE723E9E6E600DAEDC0 /* Comment.swift in Sources */,
 				BB05499723E8965000EF62AF /* MessageBoardTableViewCell.swift in Sources */,
 				9518B93F23E8F60600843E7C /* Post.swift in Sources */,
