@@ -17,8 +17,9 @@ class Post: Codable {
     let long: String?
     let lat: String?
     let id: String?
+    let date: String
     
-    init(authorName: String, title: String, description: String, tag: [String] = [Tag.general.rawValue], long: String = "", lat: String = "", id: String?) {
+    init(authorName: String, title: String, description: String, tag: [String] = [Tag.general.rawValue], long: String = "", lat: String = "", id: String?, date: String) {
     
         self.author = authorName
         self.title = title
@@ -27,6 +28,7 @@ class Post: Codable {
         self.long = long
         self.lat = lat
         self.id = id == nil ? UUID().uuidString : id
+        self.date = date
     }
     
     convenience init?(dictionary: [String: Any]) {
@@ -37,17 +39,17 @@ class Post: Codable {
             let latitude = dictionary["latitude"] as? String,
             let longitude = dictionary["longitude"] as? String else { return nil }
 
-
+        let date = dictionary["date"] as? String
         if let tags = dictionary["tags"] as? [String] {
-            self.init(authorName: author, title: title, description: description, tag: tags, long: longitude, lat: latitude, id: identifier)
+            self.init(authorName: author, title: title, description: description, tag: tags, long: longitude, lat: latitude, id: identifier, date: date ?? "")
             return
         }
 
-        self.init(authorName: author, title: title, description: description, long: longitude, lat: latitude, id: identifier)
+        self.init(authorName: author, title: title, description: description, long: longitude, lat: latitude, id: identifier, date: date ?? "")
     }
     
     var dictionaryRepresentation: [String: Any] {
-        return ["author": author, "title": title, "description": description, "tags": tag as Any, "id": id!, "latitude": lat ?? "", "longitude": long ?? ""]
+        return ["author": author, "title": title, "description": description, "tags": tag as Any, "id": id!, "latitude": lat ?? "", "longitude": long ?? "", "date": date]
       }
 }
 

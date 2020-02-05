@@ -30,14 +30,14 @@ class CommentController {
     }
     
     //returns an array of comments for specific postID
-    func fetchCommentsforPost(postID: String, completion: @escaping ([Comment]?, Error?) -> Void) {
+    func fetchCommentsforPost(postID: String, completion: @escaping ([Comment]?) -> Void) {
         var commentsForPost = [Comment]()
         guard let ref = self.ref else { return print("here1")}
         ref.child("Comments").child(postID).observeSingleEvent(of: .value) { (snapshot) in
             
             guard let comments = snapshot.value as? [String: Any] else {
-                NSLog("Error printing authors")
-                completion(nil, NSError())
+                NSLog("No comments")
+                completion(nil)
                 return
             }
             for c in comments {
@@ -46,7 +46,7 @@ class CommentController {
                         continue }
                 commentsForPost.append(comment)
             }
-            completion(commentsForPost, nil)
+            completion(commentsForPost)
         }
     }
 }

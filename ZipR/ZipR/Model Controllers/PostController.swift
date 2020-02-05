@@ -19,8 +19,8 @@ class PostController {
         ref = Database.database().reference()
     }
     
-    func createPost(author: String, title: String, description: String, tag: [String], lat: String, long: String) {
-        let post = Post(authorName: author, title: title, description: description, tag: tag, long: long, lat: lat, id: nil)
+    func createPost(author: String, title: String, description: String, tag: [String], lat: String, long: String, date: String) {
+        let post = Post(authorName: author, title: title, description: description, tag: tag, long: "0", lat: "0", id: nil, date: date)
         //let post = Post(authorName: author, title: title, description: description, id: nil)
         self.ref.child("Posts").child(post.id ?? UUID().uuidString).setValue(post.dictionaryRepresentation) { (error:Error?, ref:DatabaseReference) in
             if let error = error {
@@ -39,7 +39,7 @@ class PostController {
         ref.child("Posts").observeSingleEvent(of: .value) { (snapshot) in
             
             guard let posts = snapshot.value as? [String: Any] else {
-                NSLog("Error printing authors")
+                NSLog("There are no posts in your area")
                 return
             }
             for p in posts {
@@ -55,6 +55,7 @@ class PostController {
     
     func parsePosts(lat: String, long: String) -> [Post] {
         var parsedPosts: [Post] = []
+        var parsedPostsByDate: [Post] = []
         guard let usersLat = Double(lat),
             let usersLong = Double(long) else { return []}
         
@@ -65,6 +66,23 @@ class PostController {
                 parsedPosts.append(post)
             }
         }
+        parsedPostsByDate = orderPostsByDate(posts: parsedPosts)
+        return parsedPostsByDate
+    }
+    
+    func orderPostsByDate(posts: [Post]) -> [Post]{
+        var orderedPosts: [Post] = []
+        orderedPosts = posts.sorted(by: { Double($0.date)! > Double($1.date)! })
+        
+        return orderedPosts
+    }
+    
+    func filterPostsByUserandDate(posts: [Post], userName: String) -> [Post]{
+        var parsedPosts: [Post] = []
+        
+        let usersPosts = posts.filter({$0.author == userName})
+        parsedPosts = orderPostsByDate(posts: usersPosts)
+        
         return parsedPosts
     }
 }

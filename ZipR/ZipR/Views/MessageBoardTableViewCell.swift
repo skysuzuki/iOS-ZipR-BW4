@@ -9,6 +9,10 @@
 import UIKit
 import TagListView
 
+protocol MessageBoardTableViewCellDelegate {
+    func commentButtonWasPressed(_ messageBoardCell: MessageBoardTableViewCell)
+}
+
 class MessageBoardTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
@@ -17,6 +21,7 @@ class MessageBoardTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var commentNumberLabel: UILabel!
 
+    var delegate: MessageBoardTableViewCellDelegate?
     var post: Post? {
         didSet {
             updateViews()
@@ -27,6 +32,11 @@ class MessageBoardTableViewCell: UITableViewCell {
         guard let post = post else { return print("No Post!") }
         authorLabel.text = post.author
         titleLabel.text = post.title
+        tagListView.removeAllTags()
         tagListView.addTags(post.tag?.map({ $0.capitalized }) ?? [])
+    }
+
+    @IBAction func commentButtonPressed(_ sender: UIButton) {
+        delegate?.commentButtonWasPressed(self)
     }
 }

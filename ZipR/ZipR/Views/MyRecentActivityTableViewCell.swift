@@ -9,6 +9,18 @@
 import UIKit
 
 class MyRecentActivityTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var testLabel: UILabel!
+    
+    var post: Post? {
+        didSet {
+            updateViews()
+        }
+    }
 
+    private func updateViews() {
+        guard let post = post else { return print("No Post!") }
+        testLabel.text = post.title
+    }
 
 }
