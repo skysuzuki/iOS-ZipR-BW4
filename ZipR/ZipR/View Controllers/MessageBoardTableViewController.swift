@@ -17,6 +17,13 @@ class MessageBoardTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: NSNotification.Name(rawValue: "UserWasLoggedIn"), object: nil)
+
+    }
+
+    @objc func updateViews() {
+        print("Got the notification")
         guard let postController = postController else { return }
         postController.fetchPosts { (error) in
             if let _ = error {
