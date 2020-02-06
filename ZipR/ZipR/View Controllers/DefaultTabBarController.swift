@@ -54,6 +54,9 @@ class DefaultTabBarController: UITabBarController {
         
         let activityTVC = self.viewControllers?[0] as? MyRecentActivtyTableViewController
         activityTVC?.postController = self.postController
+        
+        let profileVC = self.viewControllers?[2] as? ProfileViewController
+        profileVC?.postController = self.postController
 //        activityTVC?.usersPosts = fetchUsersPosts()
 //        activityTVC?.tableView.reloadData()
     }
