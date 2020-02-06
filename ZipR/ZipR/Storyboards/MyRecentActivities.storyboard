@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NjP-MU-iVf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Recent Activity-->
+        <scene sceneID="DoL-dE-YJp">
+            <objects>
+                <tableViewController id="wW1-Ze-8fM" customClass="MyRecentActivtyTableViewController" customModule="ZipR" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9J6-af-2fs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentActivityCell" rowHeight="172" id="lQP-1J-1ty">
+                                <rect key="frame" x="0.0" y="28" width="414" height="172"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lQP-1J-1ty" id="Rua-Bt-nDn">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="172"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2wV-oe-vWG">
+                                            <rect key="frame" x="20" y="10" width="374" height="112"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ox-VF-UPL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pmq-WG-7vB" customClass="TagListView" customModule="TagListView">
+                                                    <rect key="frame" x="0.0" y="26" width="374" height="37"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1z-As-7X5">
+                                                    <rect key="frame" x="0.0" y="71" width="374" height="41"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AIR-TB-PHb">
+                                            <rect key="frame" x="20" y="139" width="49.5" height="30"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEw-oD-Cfu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="10.5" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdt-zM-VKv">
+                                                    <rect key="frame" x="14.5" y="0.0" width="35" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="f0q-gr-zxd"/>
+                                                        <constraint firstAttribute="width" constant="35" id="zqa-G9-UBr"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="pencil.and.ellipsis.rectangle" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AIR-TB-PHb" firstAttribute="leading" secondItem="2wV-oe-vWG" secondAttribute="leading" id="9uw-F8-TDs"/>
+                                        <constraint firstAttribute="trailing" secondItem="2wV-oe-vWG" secondAttribute="trailing" constant="20" id="C52-ZH-ufp"/>
+                                        <constraint firstItem="2wV-oe-vWG" firstAttribute="leading" secondItem="Rua-Bt-nDn" secondAttribute="leading" constant="20" id="KL6-w6-KjI"/>
+                                        <constraint firstAttribute="bottom" secondItem="AIR-TB-PHb" secondAttribute="bottom" constant="3" id="c5Y-iA-617"/>
+                                        <constraint firstItem="AIR-TB-PHb" firstAttribute="top" secondItem="2wV-oe-vWG" secondAttribute="bottom" constant="17" id="qT6-oy-FN4"/>
+                                        <constraint firstItem="2wV-oe-vWG" firstAttribute="top" secondItem="Rua-Bt-nDn" secondAttribute="top" constant="10" id="xSz-jl-Wwo"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wW1-Ze-8fM" id="Rcq-e5-0M2"/>
+                            <outlet property="delegate" destination="wW1-Ze-8fM" id="1xK-Ap-7HR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Recent Activity" id="6pK-Wl-vJK"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vnb-OV-gij" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671.01449275362324" y="207.58928571428569"/>
+        </scene>
+        <!--Recent Activity-->
+        <scene sceneID="XLZ-z3-vem">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NjP-MU-iVf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recent Activity" image="tray.and.arrow.down.fill" catalog="system" selectedImage="tray.and.arrow.down.fill" id="I91-6p-XFo"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TEi-4f-KBk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wW1-Ze-8fM" kind="relationship" relationship="rootViewController" id="tqX-PI-3kg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZX-f4-lAs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71" y="208"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="32" height="32"/>
+        <image name="tray.and.arrow.down.fill" catalog="system" width="64" height="56"/>
+    </resources>
+</document>

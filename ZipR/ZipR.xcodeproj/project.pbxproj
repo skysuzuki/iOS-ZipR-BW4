@@ -30,6 +30,8 @@
 		BB05499F23E8C10500EF62AF /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05499E23E8C10500EF62AF /* DetailPostViewController.swift */; };
 		BB0549A323E8D7F100EF62AF /* PostTagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0549A223E8D7F100EF62AF /* PostTagTableViewController.swift */; };
 		C23784A42AEB87236E5E146D /* Pods_ZipR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F07FE403CAAF075EACC8329 /* Pods_ZipR.framework */; };
+		DD3ECEE323EB7B8400B02681 /* MyRecentActivities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3ECEE223EB7B8400B02681 /* MyRecentActivities.storyboard */; };
+		DD3ECEE523EB8DDC00B02681 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3ECEE423EB8DDC00B02681 /* Profile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		BB05499C23E8AC3700EF62AF /* CreateMessageBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMessageBoardViewController.swift; sourceTree = "<group>"; };
 		BB05499E23E8C10500EF62AF /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
 		BB0549A223E8D7F100EF62AF /* PostTagTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTagTableViewController.swift; sourceTree = "<group>"; };
+		DD3ECEE223EB7B8400B02681 /* MyRecentActivities.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyRecentActivities.storyboard; sourceTree = "<group>"; };
+		DD3ECEE423EB8DDC00B02681 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,12 +112,11 @@
 				BB0549A523E90C8B00EF62AF /* Views */,
 				BB0549A723E90CB900EF62AF /* Model Controllers */,
 				BB0549A623E90C9A00EF62AF /* Models */,
+				DD3ECEE623EBC46E00B02681 /* Storyboards */,
 				BB05497C23E8925100EF62AF /* AppDelegate.swift */,
 				BB05497E23E8925100EF62AF /* SceneDelegate.swift */,
-				BB05498223E8925100EF62AF /* Main.storyboard */,
 				BB05498523E8925400EF62AF /* Assets.xcassets */,
 				9518B94023E8F8DF00843E7C /* GoogleService-Info.plist */,
-				BB05498723E8925400EF62AF /* LaunchScreen.storyboard */,
 				BB05498A23E8925400EF62AF /* Info.plist */,
 			);
 			path = ZipR;
@@ -161,6 +164,17 @@
 				9518B93C23E8F60600843E7C /* PostController.swift */,
 			);
 			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		DD3ECEE623EBC46E00B02681 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BB05498223E8925100EF62AF /* Main.storyboard */,
+				DD3ECEE423EB8DDC00B02681 /* Profile.storyboard */,
+				DD3ECEE223EB7B8400B02681 /* MyRecentActivities.storyboard */,
+				BB05498723E8925400EF62AF /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		E51A11DBD837F3FB65E94280 /* Frameworks */ = {
@@ -232,10 +246,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3ECEE523EB8DDC00B02681 /* Profile.storyboard in Resources */,
 				BB05498923E8925400EF62AF /* LaunchScreen.storyboard in Resources */,
 				9518B94123E8F8DF00843E7C /* GoogleService-Info.plist in Resources */,
 				BB05498623E8925400EF62AF /* Assets.xcassets in Resources */,
 				BB05498423E8925100EF62AF /* Main.storyboard in Resources */,
+				DD3ECEE323EB7B8400B02681 /* MyRecentActivities.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
