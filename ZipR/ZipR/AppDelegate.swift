@@ -15,13 +15,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-            FirebaseApp.configure()
-            
-            GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         
-            return true
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        
+        let userDefaults = UserDefaults.standard
+        if userDefaults.value(forKey: "appFirstTimeOpend") == nil {
+            //if app is first time opened then it will be nil
+            userDefaults.setValue(true, forKey: "appFirstTimeOpend")
+            // signOut from FIRAuth
+            do {
+                try Auth.auth().signOut()
+            }catch {
+                
+            }
         }
+        
+        return true
+    }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     let handled = GIDSignIn.sharedInstance().handle(url)
