@@ -20,7 +20,7 @@ class PostController {
     }
     
     func createPost(author: String, title: String, description: String, tag: [String], lat: String, long: String, date: String) {
-        let post = Post(authorName: author, title: title, description: description, tag: tag, long: "0", lat: "0", id: nil, date: date)
+        let post = Post(authorName: author, title: title, description: description, tag: tag, long: long, lat: lat, id: nil, date: date)
         //let post = Post(authorName: author, title: title, description: description, id: nil)
         self.ref.child("Posts").child(post.id ?? UUID().uuidString).setValue(post.dictionaryRepresentation) { (error:Error?, ref:DatabaseReference) in
             if let error = error {
@@ -48,9 +48,13 @@ class PostController {
                         continue }
                 self.posts.append(post)
             }
-            print("\(self.posts.count)")
             completion(nil)
         }
+    }
+    
+    func deletePostandItsComments(postId: String) {
+        self.ref.child("Posts").child(postId).removeValue()
+        self.ref.child("Comments").child(postId).removeValue()
     }
     
     func parsePosts(lat: String, long: String) -> [Post] {
