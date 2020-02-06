@@ -14,18 +14,24 @@ class DefaultTabBarController: PTCardTabBarController {
     
     let postController = PostController()
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        guard let _ = postController.user else {
+            if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                loginVC.postController = self.postController
+                present(loginVC, animated: true, completion: nil)
+            }
+            return
+        }
+
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViewControllers()
     }
     
-    override func viewWillLayoutSubviews() {
-        
-        guard let _ = postController.user else {
-            self.performSegue(withIdentifier: "LoginSegue", sender: self)
-            return
-        }
-    }
     private func setUpViewControllers() {
         let messageBoardTVC = self.viewControllers?[1] as? MessageBoardTableViewController
         messageBoardTVC?.postController = self.postController
@@ -52,10 +58,10 @@ class DefaultTabBarController: PTCardTabBarController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "LoginSegue" {
-            let destinationVC = segue.destination as? LoginViewController
-            destinationVC?.postController = postController
-        }
+//        if segue.identifier == "LoginSegue" {
+//            let destinationVC = segue.destination as? LoginViewController
+//            destinationVC?.postController = postController
+//        }
     }
 }
 
