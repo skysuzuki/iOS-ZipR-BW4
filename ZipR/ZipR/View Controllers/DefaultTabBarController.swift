@@ -9,22 +9,38 @@
 import UIKit
 import PTCardTabBar
 import CoreLocation
+import FirebaseAuth
+
 
 class DefaultTabBarController: UITabBarController {
     
     let postController = PostController()
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.selectedIndex = 1
-        guard let _ = postController.user else {
-            if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-                loginVC.postController = self.postController
-                present(loginVC, animated: true, completion: nil)
+        
+        if Auth.auth().currentUser != nil {
+            guard let name = Auth.auth().currentUser?.displayName else { return }
+            Location.shared.getCurrentLocation { (coordinate) in
+                guard let coordinate = coordinate else { return }
+                let lat = coordinate.latitude
+                let long = coordinate.longitude
+                let latString = String(lat)
+                let longString = String(long)
+                let loggeduser = CurrentUser(name: name, longitude: longString, latitude: latString)
+                self.postController.user = loggeduser
+                print("Welcome \(name)")
             }
-            return
-        }
+        } else {
+            guard let _ = postController.user else {
+                if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                    loginVC.postController = self.postController
+                    present(loginVC, animated: true, completion: nil)
+                }
+                return
 
+            }
+        }
     }
 
     override func viewDidLoad() {
