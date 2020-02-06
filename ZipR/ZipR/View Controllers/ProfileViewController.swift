@@ -7,16 +7,47 @@
 //
 
 import UIKit
+import GoogleSignIn
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
+    
+    var postController: PostController?
 
+    @IBOutlet weak var usernameTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateViews()
     }
     
-
+    
+    @IBAction func signOutTapped(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().signOut()
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+            self.postController?.user = nil
+            
+            if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                loginVC.postController = PostController()
+                present(loginVC, animated: true, completion: nil)
+            }
+            
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+    }
+    
+    func updateViews() {
+        usernameTF.text = postController?.user?.name
+        emailTF.text = Auth.auth().currentUser?.email
+        usernameTF.isUserInteractionEnabled = false
+        emailTF.isUserInteractionEnabled = false
+        
+    }
+    
     /*
     // MARK: - Navigation
 
