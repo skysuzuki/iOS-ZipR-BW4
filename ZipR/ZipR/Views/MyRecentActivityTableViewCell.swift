@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import TagListView
 
 class MyRecentActivityTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var testLabel: UILabel!
-    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var tagListView: TagListView!
+
     var post: Post? {
         didSet {
             updateViews()
@@ -20,7 +22,9 @@ class MyRecentActivityTableViewCell: UITableViewCell {
 
     private func updateViews() {
         guard let post = post else { return print("No Post!") }
-        testLabel.text = post.title
+        titleLabel.text = post.title
+        tagListView.removeAllTags()
+        tagListView.addTags(post.tag?.map({ $0.capitalized }) ?? [])
     }
 
 }
