@@ -48,6 +48,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                     let loggeduser = CurrentUser(name: name, longitude: longString, latitude: latString)
                     self.postController?.user = loggeduser
                     print("Welcome \(name)")
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserWasLoggedIn"), object: self)
                     self.dismiss(animated: true, completion: nil)
                 }
             }

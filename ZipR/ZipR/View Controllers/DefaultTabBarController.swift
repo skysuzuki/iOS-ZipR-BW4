@@ -12,7 +12,7 @@ import CoreLocation
 import FirebaseAuth
 
 
-class DefaultTabBarController: PTCardTabBarController {
+class DefaultTabBarController: UITabBarController {
     
     let postController = PostController()
     
@@ -38,6 +38,7 @@ class DefaultTabBarController: PTCardTabBarController {
                     present(loginVC, animated: true, completion: nil)
                 }
                 return
+
             }
         }
     }
