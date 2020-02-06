@@ -18,7 +18,7 @@ class DefaultTabBarController: UITabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        self.selectedIndex = 1
         if Auth.auth().currentUser != nil {
             guard let name = Auth.auth().currentUser?.displayName else { return }
             Location.shared.getCurrentLocation { (coordinate) in
@@ -29,6 +29,7 @@ class DefaultTabBarController: UITabBarController {
                 let longString = String(long)
                 let loggeduser = CurrentUser(name: name, longitude: longString, latitude: latString)
                 self.postController.user = loggeduser
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserWasLoggedIn"), object: self)
                 print("Welcome \(name)")
             }
         } else {
@@ -54,8 +55,8 @@ class DefaultTabBarController: UITabBarController {
         
         let activityTVC = self.viewControllers?[0] as? MyRecentActivtyTableViewController
         activityTVC?.postController = self.postController
-//        activityTVC?.usersPosts = fetchUsersPosts()
-//        activityTVC?.tableView.reloadData()
+        //        activityTVC?.usersPosts = fetchUsersPosts()
+        //        activityTVC?.tableView.reloadData()
     }
     
     private func fetchUsersPosts() -> [Post] {
@@ -74,10 +75,10 @@ class DefaultTabBarController: UITabBarController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "LoginSegue" {
-//            let destinationVC = segue.destination as? LoginViewController
-//            destinationVC?.postController = postController
-//        }
+        //        if segue.identifier == "LoginSegue" {
+        //            let destinationVC = segue.destination as? LoginViewController
+        //            destinationVC?.postController = postController
+        //        }
     }
 }
 
