@@ -11,18 +11,14 @@ import SOTabBar
 import CoreLocation
 import FirebaseAuth
 
-
 class DefaultTabBarController: SOTabBarController {
     
     let postController = PostController()
 
-    private let forestGreen = UIColor(rgb: 0x2c5f2D)
-    private let mossGreen = UIColor(rgb: 0x97BC62)
-
     override func loadView() {
         super.loadView()
-        SOTabBarSetting.tabBarTintColor = forestGreen
-        SOTabBarSetting.tabBarBackground = mossGreen
+        SOTabBarSetting.tabBarTintColor = UIColor.forestGreen
+        SOTabBarSetting.tabBarBackground = UIColor.mossGreen
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,16 +68,16 @@ class DefaultTabBarController: SOTabBarController {
         let personImage = UIImage(systemName: "person")
 
         messageBoardTVC.tabBarItem = UITabBarItem(title: "My Feed",
-                                                  image: listDashImage?.withTintColor(forestGreen, renderingMode: .alwaysOriginal),
-                                                  selectedImage: listDashImage?.withTintColor(mossGreen, renderingMode: .alwaysOriginal))
+                                                  image: listDashImage?.withTintColor(UIColor.forestGreen, renderingMode: .alwaysOriginal),
+                                                  selectedImage: listDashImage?.withTintColor(UIColor.mossGreen, renderingMode: .alwaysOriginal))
 
         activityTVC.tabBarItem = UITabBarItem(title: "Recent Activity",
-                                              image: clockImage?.withTintColor(forestGreen, renderingMode: .alwaysOriginal),
-                                              selectedImage: clockImage?.withTintColor(mossGreen, renderingMode: .alwaysOriginal))
+                                              image: clockImage?.withTintColor(UIColor.forestGreen, renderingMode: .alwaysOriginal),
+                                              selectedImage: clockImage?.withTintColor(UIColor.mossGreen, renderingMode: .alwaysOriginal))
 
         profileVC.tabBarItem = UITabBarItem(title: "Profile",
-                                            image: personImage?.withTintColor(forestGreen, renderingMode: .alwaysOriginal),
-                                            selectedImage: personImage?.withTintColor(mossGreen, renderingMode: .alwaysOriginal))
+                                            image: personImage?.withTintColor(UIColor.forestGreen, renderingMode: .alwaysOriginal),
+                                            selectedImage: personImage?.withTintColor(UIColor.mossGreen, renderingMode: .alwaysOriginal))
 
         viewControllers = [messageBoardTVC, activityTVC, profileVC]
 
