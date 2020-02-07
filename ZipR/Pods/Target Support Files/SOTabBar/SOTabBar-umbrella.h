@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double PTCardTabBarVersionNumber;
-FOUNDATION_EXPORT const unsigned char PTCardTabBarVersionString[];
+FOUNDATION_EXPORT double SOTabBarVersionNumber;
+FOUNDATION_EXPORT const unsigned char SOTabBarVersionString[];
 

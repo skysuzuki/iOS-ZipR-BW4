@@ -3012,7 +3012,7 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright (c) 2019 hussc &lt;hus.sc@aol.com&gt;
+			<string>Copyright (c) 2020 Ahmadalsofi &lt;alsofiahmad@yahoo.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -3035,7 +3035,7 @@ THE SOFTWARE.
 			<key>License</key>
 			<string>MIT</string>
 			<key>Title</key>
-			<string>PTCardTabBar</string>
+			<string>SOTabBar</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

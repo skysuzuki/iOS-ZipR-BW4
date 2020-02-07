@@ -2897,9 +2897,9 @@ Copyright 2019 Google
    limitations under the License.
 
 
-## PTCardTabBar
+## SOTabBar
 
-Copyright (c) 2019 hussc <hus.sc@aol.com>
+Copyright (c) 2020 Ahmadalsofi <alsofiahmad@yahoo.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
