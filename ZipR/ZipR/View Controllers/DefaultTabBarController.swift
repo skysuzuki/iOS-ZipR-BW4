@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import PTCardTabBar
+import SOTabBar
 import CoreLocation
 import FirebaseAuth
 
@@ -50,14 +50,26 @@ class DefaultTabBarController: UITabBarController {
     }
     
     private func setUpViewControllers() {
-        let messageBoardTVC = self.viewControllers?[1] as? MessageBoardTableViewController
-        messageBoardTVC?.postController = self.postController
+        if let messageBoardNC = self.viewControllers?[1] as? UINavigationController {
+            let messageBoardTVC = messageBoardNC.topViewController as? MessageBoardTableViewController
+            messageBoardTVC?.postController = self.postController
+        }
+
+        if let activityNC = self.viewControllers?[0] as? UINavigationController {
+            let activityTVC = activityNC.topViewController as? MyRecentActivtyTableViewController
+            activityTVC?.postController = self.postController
+        }
+
+        if let profileNC = self.viewControllers?[2] as? UINavigationController {
+            let profileVC = profileNC.topViewController as? ProfileViewController
+            profileVC?.postController = self.postController
+        }
+
+        //let activityTVC = self.viewControllers?[0] as? MyRecentActivtyTableViewController
+        //activityTVC?.postController = self.postController
         
-        let activityTVC = self.viewControllers?[0] as? MyRecentActivtyTableViewController
-        activityTVC?.postController = self.postController
-        
-        let profileVC = self.viewControllers?[2] as? ProfileViewController
-        profileVC?.postController = self.postController
+        //let profileVC = self.viewControllers?[2] as? ProfileViewController
+        //profileVC?.postController = self.postController
 //        activityTVC?.usersPosts = fetchUsersPosts()
 //        activityTVC?.tableView.reloadData()
 
