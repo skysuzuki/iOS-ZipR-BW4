@@ -17,6 +17,9 @@ class MessageBoardTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let refreshController = UIRefreshControl()
+        refreshController.addTarget(self, action: #selector(updateViews), for: .valueChanged)
+        self.refreshControl = refreshController
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: NSNotification.Name(rawValue: "UserWasLoggedIn"), object: nil)
 
     }
@@ -38,6 +41,7 @@ class MessageBoardTableViewController: UITableViewController {
                 self.localPosts = postController.parsePosts(lat: self.usersLat, long: self.usersLong)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
                 }
             }
         }
