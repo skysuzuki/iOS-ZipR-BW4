@@ -45,7 +45,6 @@ class ProfileViewController: UIViewController {
         emailTF.text = Auth.auth().currentUser?.email
         usernameTF.isUserInteractionEnabled = false
         emailTF.isUserInteractionEnabled = false
-        
     }
     
     /*
