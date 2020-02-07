@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let userDefaults = UserDefaults.standard
         if userDefaults.value(forKey: "appFirstTimeOpend") == nil {
-            //if app is first time opened then it will be nil
             userDefaults.setValue(true, forKey: "appFirstTimeOpend")
             // signOut from FIRAuth
             do {
@@ -38,9 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     let handled = GIDSignIn.sharedInstance().handle(url)
     return handled
-    // return GIDSignIn.sharedInstance().handle(url,
-    // sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-    // annotation: [:])
     }
 
     // MARK: UISceneSession Lifecycle

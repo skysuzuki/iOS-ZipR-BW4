@@ -53,14 +53,6 @@ class Post: Codable {
       }
 }
 
-
-
-
-
-
-
-
-
 enum Tag: String, CaseIterable {
     case general
     case art

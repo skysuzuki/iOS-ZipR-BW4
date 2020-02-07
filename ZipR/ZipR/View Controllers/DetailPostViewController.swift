@@ -29,7 +29,6 @@ class DetailPostViewController: UIViewController {
         commentTableView.dataSource = self
         commentTextField.delegate = self
         updateViews()
-        // Do any additional setup after loading the view.
     }
 
     private func postComment() {

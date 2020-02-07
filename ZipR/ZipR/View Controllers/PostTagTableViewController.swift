@@ -67,6 +67,4 @@ class PostTagTableViewController: UITableViewController {
         }
         tableView.reloadData()
     }
-
-
 }
