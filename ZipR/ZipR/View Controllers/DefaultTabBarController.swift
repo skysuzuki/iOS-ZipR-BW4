@@ -12,13 +12,13 @@ import CoreLocation
 import FirebaseAuth
 
 
-class DefaultTabBarController: UITabBarController {
+class DefaultTabBarController: SOTabBarController {
     
     let postController = PostController()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.selectedIndex = 1
+        //self.selectedIndex = 1
         if Auth.auth().currentUser != nil {
             guard let name = Auth.auth().currentUser?.displayName else { return }
             Location.shared.getCurrentLocation { (coordinate) in
@@ -50,28 +50,35 @@ class DefaultTabBarController: UITabBarController {
     }
     
     private func setUpViewControllers() {
-        if let messageBoardNC = self.viewControllers?[1] as? UINavigationController {
+
+        let messageBoardTVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MessageBoardNavController")
+
+        let activityTVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ActivityNavController")
+
+        let profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileNavController")
+
+        messageBoardTVC.tabBarItem = UITabBarItem(title: "My Feed", image: UIImage(systemName: "list.dash"), selectedImage: UIImage(systemName: "list.dash"))
+
+        activityTVC.tabBarItem = UITabBarItem(title: "Recent Activity", image: UIImage(systemName: "clock"), selectedImage: UIImage(systemName: "clock"))
+
+        profileVC.tabBarItem = UITabBarItem(title: "My Feed", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person"))
+
+        viewControllers = [messageBoardTVC, activityTVC, profileVC]
+
+        if let messageBoardNC = self.viewControllers[0] as? UINavigationController {
             let messageBoardTVC = messageBoardNC.topViewController as? MessageBoardTableViewController
             messageBoardTVC?.postController = self.postController
         }
 
-        if let activityNC = self.viewControllers?[0] as? UINavigationController {
+        if let activityNC = self.viewControllers[1] as? UINavigationController {
             let activityTVC = activityNC.topViewController as? MyRecentActivtyTableViewController
             activityTVC?.postController = self.postController
         }
 
-        if let profileNC = self.viewControllers?[2] as? UINavigationController {
+        if let profileNC = self.viewControllers[2] as? UINavigationController {
             let profileVC = profileNC.topViewController as? ProfileViewController
             profileVC?.postController = self.postController
         }
-
-        //let activityTVC = self.viewControllers?[0] as? MyRecentActivtyTableViewController
-        //activityTVC?.postController = self.postController
-        
-        //let profileVC = self.viewControllers?[2] as? ProfileViewController
-        //profileVC?.postController = self.postController
-//        activityTVC?.usersPosts = fetchUsersPosts()
-//        activityTVC?.tableView.reloadData()
 
     }
     
