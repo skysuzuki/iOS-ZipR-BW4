@@ -7,18 +7,24 @@
 //
 
 import UIKit
-import PTCardTabBar
+import SOTabBar
 import CoreLocation
 import FirebaseAuth
 
-
-class DefaultTabBarController: UITabBarController {
+class DefaultTabBarController: SOTabBarController {
     
     let postController = PostController()
+
+    override func loadView() {
+        super.loadView()
+        SOTabBarSetting.tabBarTintColor = UIColor.forestGreen
+        SOTabBarSetting.tabBarBackground = UIColor.mossGreen
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.selectedIndex = 1
+
+        //self.selectedIndex = 1
         if Auth.auth().currentUser != nil {
             guard let name = Auth.auth().currentUser?.displayName else { return }
             Location.shared.getCurrentLocation { (coordinate) in
@@ -50,16 +56,45 @@ class DefaultTabBarController: UITabBarController {
     }
     
     private func setUpViewControllers() {
-        let messageBoardTVC = self.viewControllers?[1] as? MessageBoardTableViewController
-        messageBoardTVC?.postController = self.postController
-        
-        let activityTVC = self.viewControllers?[0] as? MyRecentActivtyTableViewController
-        activityTVC?.postController = self.postController
-        
-        let profileVC = self.viewControllers?[2] as? ProfileViewController
-        profileVC?.postController = self.postController
-//        activityTVC?.usersPosts = fetchUsersPosts()
-//        activityTVC?.tableView.reloadData()
+
+        let messageBoardTVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MessageBoardNavController")
+
+        let activityTVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ActivityNavController")
+
+        let profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileNavController")
+
+        let listDashImage = UIImage(systemName: "list.dash")
+        let clockImage = UIImage(systemName: "clock")
+        let personImage = UIImage(systemName: "person")
+
+        messageBoardTVC.tabBarItem = UITabBarItem(title: "My Feed",
+                                                  image: listDashImage?.withTintColor(UIColor.forestGreen, renderingMode: .alwaysOriginal),
+                                                  selectedImage: listDashImage?.withTintColor(UIColor.mossGreen, renderingMode: .alwaysOriginal))
+
+        activityTVC.tabBarItem = UITabBarItem(title: "Recent Activity",
+                                              image: clockImage?.withTintColor(UIColor.forestGreen, renderingMode: .alwaysOriginal),
+                                              selectedImage: clockImage?.withTintColor(UIColor.mossGreen, renderingMode: .alwaysOriginal))
+
+        profileVC.tabBarItem = UITabBarItem(title: "Profile",
+                                            image: personImage?.withTintColor(UIColor.forestGreen, renderingMode: .alwaysOriginal),
+                                            selectedImage: personImage?.withTintColor(UIColor.mossGreen, renderingMode: .alwaysOriginal))
+
+        viewControllers = [messageBoardTVC, activityTVC, profileVC]
+
+        if let messageBoardNC = self.viewControllers[0] as? UINavigationController {
+            let messageBoardTVC = messageBoardNC.topViewController as? MessageBoardTableViewController
+            messageBoardTVC?.postController = self.postController
+        }
+
+        if let activityNC = self.viewControllers[1] as? UINavigationController {
+            let activityTVC = activityNC.topViewController as? MyRecentActivtyTableViewController
+            activityTVC?.postController = self.postController
+        }
+
+        if let profileNC = self.viewControllers[2] as? UINavigationController {
+            let profileVC = profileNC.topViewController as? ProfileViewController
+            profileVC?.postController = self.postController
+        }
 
     }
     

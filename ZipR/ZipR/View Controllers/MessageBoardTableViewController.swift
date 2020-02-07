@@ -21,6 +21,11 @@ class MessageBoardTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: NSNotification.Name(rawValue: "UserWasLoggedIn"), object: nil)
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: NSNotification.Name(rawValue: "Deletion"), object: nil)
+    }
 
     @objc func updateViews() {
         print("Got the notification")

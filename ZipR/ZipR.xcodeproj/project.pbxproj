@@ -29,6 +29,7 @@
 		BB05499D23E8AC3700EF62AF /* CreateMessageBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05499C23E8AC3700EF62AF /* CreateMessageBoardViewController.swift */; };
 		BB05499F23E8C10500EF62AF /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05499E23E8C10500EF62AF /* DetailPostViewController.swift */; };
 		BB0549A323E8D7F100EF62AF /* PostTagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0549A223E8D7F100EF62AF /* PostTagTableViewController.swift */; };
+		BB70135723ED12D600C8A179 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70135623ED12D600C8A179 /* UIColor+Extension.swift */; };
 		C23784A42AEB87236E5E146D /* Pods_ZipR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F07FE403CAAF075EACC8329 /* Pods_ZipR.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		BB05499C23E8AC3700EF62AF /* CreateMessageBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMessageBoardViewController.swift; sourceTree = "<group>"; };
 		BB05499E23E8C10500EF62AF /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
 		BB0549A223E8D7F100EF62AF /* PostTagTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTagTableViewController.swift; sourceTree = "<group>"; };
+		BB70135623ED12D600C8A179 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				BB05497C23E8925100EF62AF /* AppDelegate.swift */,
 				BB05497E23E8925100EF62AF /* SceneDelegate.swift */,
 				BB05498223E8925100EF62AF /* Main.storyboard */,
+				BB70135623ED12D600C8A179 /* UIColor+Extension.swift */,
 				BB05498523E8925400EF62AF /* Assets.xcassets */,
 				9518B94023E8F8DF00843E7C /* GoogleService-Info.plist */,
 				BB05498723E8925400EF62AF /* LaunchScreen.storyboard */,
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB05499523E8963E00EF62AF /* ProfileViewController.swift in Sources */,
+				BB70135723ED12D600C8A179 /* UIColor+Extension.swift in Sources */,
 				BB05499323E8962C00EF62AF /* MyRecentActivtyTableViewController.swift in Sources */,
 				BB05499123E895F200EF62AF /* MessageBoardTableViewController.swift in Sources */,
 				95567EE723E9E6E600DAEDC0 /* Comment.swift in Sources */,

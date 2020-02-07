@@ -41,11 +41,10 @@ class ProfileViewController: UIViewController {
     }
     
     func updateViews() {
-        usernameTF.text = postController?.user?.name
+        usernameTF.text = Auth.auth().currentUser?.displayName
         emailTF.text = Auth.auth().currentUser?.email
         usernameTF.isUserInteractionEnabled = false
         emailTF.isUserInteractionEnabled = false
-        
     }
     
     /*
