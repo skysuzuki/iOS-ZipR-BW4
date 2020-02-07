@@ -42,6 +42,7 @@ class PostController {
                 NSLog("There are no posts in your area")
                 return
             }
+            self.posts = []
             for p in posts {
                 guard let postRep = p.value as? [String: Any],
                     let post = Post(dictionary: postRep) else { print("Trouble fetching posts data")
@@ -57,6 +58,7 @@ class PostController {
         self.ref.child("Comments").child(postId).removeValue()
     }
     
+    //Returns only the posts in the users area
     func parsePosts(lat: String, long: String) -> [Post] {
         var parsedPosts: [Post] = []
         var parsedPostsByDate: [Post] = []
